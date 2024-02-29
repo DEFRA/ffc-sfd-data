@@ -1,0 +1,19 @@
+services:
+  ffc-sfd-data:
+    build:
+      context: .
+      target: production
+    image: ffc-sfd-data
+    container_name: ffc-sfd-data
+    depends_on:
+      - ffc-sfd-data-postgres
+    environment:
+      APPINSIGHTS_CLOUDROLE: ffc-sfd-data-local
+      APPINSIGHTS_CONNECTIONSTRING: ${APPINSIGHTS_CONNECTIONSTRING}
+
+  ffc-sfd-data-postgres:
+    image: postgres:11.4-alpine
+    environment:
+      POSTGRES_DB: ffc-sfd-data
+      POSTGRES_PASSWORD: ppp
+      POSTGRES_USERNAME: postgres
