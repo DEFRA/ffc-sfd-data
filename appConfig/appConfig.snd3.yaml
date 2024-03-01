@@ -1,3 +1,11 @@
 - key: APPINSIGHTS_CONNECTIONSTRING
   value: "{{servicename}}-APPINSIGHTS-CONNECTIONSTRING"
   type: "keyvault"
+
+- key: APIM_CLIENT_SECRET
+  value: "{{servicename}}-APIM_CLIENT_SECRET"
+  type: "keyvault"
+
+- key: REDIS_PASSWORD
+  value: "{{servicename}}-REDIS_PASSWORD"
+  type: "keyvault"
