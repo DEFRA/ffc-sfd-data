@@ -6,10 +6,17 @@ services:
     image: ffc-sfd-data
     container_name: ffc-sfd-data
     depends_on:
-      - ffc-sfd-data-postgres
+      - ffc-sfd-data-redis
     environment:
       APPINSIGHTS_CLOUDROLE: ffc-sfd-data-local
       APPINSIGHTS_CONNECTIONSTRING: ${APPINSIGHTS_CONNECTIONSTRING}
+      APIM_CLIENT_ID: ${APIM_CLIENT_ID}
+      APIM_CLIENT_SECRET: ${APIM_CLIENT_SECRET}
+      APIM_SCOPE: ${APIM_SCOPE}
+      APIM_OCP_SUBSCRIPTION_KEY: ${APIM_OCP_SUBSCRIPTION_KEY}
+      APIM_AUTHORIZATION_URL: ${APIM_AUTHORIZATION_URL}
+      APIM_HOST: ${APIM_HOST}
+      REDIS_HOST: ffc-sfd-data-redis
 
   ffc-sfd-data-postgres:
     image: postgres:11.4-alpine
@@ -17,3 +24,6 @@ services:
       POSTGRES_DB: ffc-sfd-data
       POSTGRES_PASSWORD: ppp
       POSTGRES_USERNAME: postgres
+  
+  ffc-sfd-data-redis:
+    image: redis:6.2.7

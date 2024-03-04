@@ -9,19 +9,27 @@ services:
     image: ffc-sfd-data-development
     container_name: ffc-sfd-data-development
     ports:
-      - "3000:3000"
-      - "9229:9229"
+      - "3004:3004"
+      - "9004:9229"
     volumes:
       - ./app:/home/node/app
       - ./test:/home/node/test
       - ./scripts:/home/node/scripts
       - ./package.json:/home/node/package.json
-  
+
   ffc-sfd-data-postgres:
     ports:
       - "5432:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    
+  ffc-sfd-data-redis:
+    ports:
+      - "6304:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --dir /data --save 5 1
 
 volumes:
   postgres_data:
+  redis_data:
