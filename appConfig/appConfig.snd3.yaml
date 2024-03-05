@@ -1,11 +1,29 @@
 - key: APPINSIGHTS_CONNECTIONSTRING
   value: "{{servicename}}-APPINSIGHTS-CONNECTIONSTRING"
   type: "keyvault"
-
 - key: APIM_CLIENT_SECRET
   value: "{{servicename}}-APIM_CLIENT_SECRET"
   type: "keyvault"
-
 - key: REDIS_PASSWORD
   value: "{{servicename}}-REDIS_PASSWORD"
   type: "keyvault"
+- key: APIM_CLIENT_ID
+  value: "{{servicename}}-APIM_CLIENT_ID"
+  type: "keyvault"
+- key: APIM_SCOPE
+  value: "{{servicename}}-APIM_SCOPE"
+  type: "keyvault"
+- key: APIM_OCP_SUBSCRIPTION_KEY
+  value: "{{servicename}}-APIM_OCP_SUBSCRIPTION_KEY"
+  type: "keyvault"
+- key: APIM_AUTHORIZATION_URL
+  value: "{{servicename}}-APIM_AUTHORIZATION_URL"
+  type: "keyvault"
+- key: APIM_HOST
+  value: "{{servicename}}-APIM_HOST"
+  type: "keyvault"
+- key: REDIS_HOST
+  value: "{{servicename}}-REDIS_HOST"
+  type: "keyvault"
+- key: REDIS_PORT
+  value: 6380
