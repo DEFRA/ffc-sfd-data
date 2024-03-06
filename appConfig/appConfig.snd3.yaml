@@ -26,4 +26,4 @@
   value: "{{servicename}}-REDIS_HOST"
   type: "keyvault"
 - key: REDIS_PORT
-  value: 6380
+  value: "6380"
