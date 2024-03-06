@@ -1,29 +1,29 @@
-- key: APPINSIGHTS_CONNECTIONSTRING
+- key: APPINSIGHTS-CONNECTIONSTRING
   value: "{{servicename}}-APPINSIGHTS-CONNECTIONSTRING"
   type: "keyvault"
-- key: APIM_CLIENT_SECRET
-  value: "{{servicename}}-APIM_CLIENT_SECRET"
+- key: APIM-CLIENT-SECRET
+  value: "{{servicename}}-APIM-CLIENT-SECRET"
   type: "keyvault"
-- key: REDIS_PASSWORD
-  value: "{{servicename}}-REDIS_PASSWORD"
+- key: REDIS-PASSWORD
+  value: "{{servicename}}-REDIS-PASSWORD"
   type: "keyvault"
-- key: APIM_CLIENT_ID
-  value: "{{servicename}}-APIM_CLIENT_ID"
+- key: APIM-CLIENT-ID
+  value: "{{servicename}}-APIM-CLIENT-ID"
   type: "keyvault"
-- key: APIM_SCOPE
-  value: "{{servicename}}-APIM_SCOPE"
+- key: APIM-SCOPE
+  value: "{{servicename}}-APIM-SCOPE"
   type: "keyvault"
-- key: APIM_OCP_SUBSCRIPTION_KEY
-  value: "{{servicename}}-APIM_OCP_SUBSCRIPTION_KEY"
+- key: APIM-OCP-SUBSCRIPTION-KEY
+  value: "{{servicename}}-APIM-OCP-SUBSCRIPTION-KEY"
   type: "keyvault"
-- key: APIM_AUTHORIZATION_URL
-  value: "{{servicename}}-APIM_AUTHORIZATION_URL"
+- key: APIM-AUTHORIZATION-URL
+  value: "{{servicename}}-APIM-AUTHORIZATION-URL"
   type: "keyvault"
-- key: APIM_HOST
-  value: "{{servicename}}-APIM_HOST"
+- key: APIM-HOST
+  value: "{{servicename}}-APIM-HOST"
   type: "keyvault"
-- key: REDIS_HOST
-  value: "{{servicename}}-REDIS_HOST"
+- key: REDIS-HOST
+  value: "SNDADPINFRD3401.redis.cache.windows.net"
   type: "keyvault"
-- key: REDIS_PORT
+- key: REDIS-PORT
   value: "6380"

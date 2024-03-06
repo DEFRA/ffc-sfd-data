@@ -12,9 +12,9 @@ const schema = Joi.object({
 })
 
 const config = {
-  host: process.env.REDIS_HOST,
-  port: process.env.REDIS_PORT,
-  password: process.env.REDIS_PASSWORD,
+  host: process.env.REDIS-HOST,
+  port: process.env.REDIS-PORT,
+  password: process.env.REDIS-PASSWORD,
   partition: process.env.REDIS_PARTITION,
   cacheName: process.env.REDIS_CACHE_NAME,
   segment: process.env.REDIS_TOKEN_SEGMENT,

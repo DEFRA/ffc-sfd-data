@@ -2,5 +2,5 @@
   value: "production"
 - key: PORT
   value: "3000"
-- key: APPINSIGHTS_CLOUDROLE
+- key: APPINSIGHTS-CLOUDROLE
   value: "{{serviceName}}"
