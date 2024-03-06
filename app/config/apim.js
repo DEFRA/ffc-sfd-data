@@ -10,12 +10,12 @@ const schema = Joi.object().keys({
 })
 
 const config = {
-  clientId: process.env.APIM-CLIENT-ID,
-  clientSecret: process.env.APIM-CLIENT-SECRET,
-  scope: process.env.APIM-SCOPE,
-  ocpSubscriptionKey: process.env.APIM-OCP-SUBSCRIPTION-KEY,
-  authorizationUrl: process.env.APIM-AUTHORIZATION-URL,
-  host: process.env.APIM-HOST
+  clientId: process.env.APIM_CLIENT_ID,
+  clientSecret: process.env.APIM_CLIENT_SECRET,
+  scope: process.env.APIM_SCOPE,
+  ocpSubscriptionKey: process.env.APIM_OCP_SUBSCRIPTION_KEY,
+  authorizationUrl: process.env.APIM_AUTHORIZATION_URL,
+  host: process.env.APIM_HOST
 }
 
 const { error, value } = schema.validate(config)
