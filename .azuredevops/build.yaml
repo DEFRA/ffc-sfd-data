@@ -60,6 +60,4 @@ extends:
         - ffc-sfd-data-APIM-OCP-SUBSCRIPTION-KEY
         - ffc-sfd-data-APIM-AUTHORIZATION-URL
         - ffc-sfd-data-APIM-HOST
-        - ffc-sfd-data-REDIS-HOST
         - ffc-sfd-data-REDIS-PASSWORD
-        - ffc-sfd-data-REDIS-PORT
