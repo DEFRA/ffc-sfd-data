@@ -9,6 +9,7 @@ const get = async (path, crn, token) => {
 
 const getFromApim = async (path, crn, token) => {
   const apimToken = await getApimToken()
+  console.log('apimToken', apimToken)
   const { payload } = await Wreck.get(`${apimConfig.host}${path}`, {
     headers: {
       crn,
@@ -18,6 +19,7 @@ const getFromApim = async (path, crn, token) => {
     },
     json: true
   })
+  console.log('payload', payload)
   return payload
 }
 
