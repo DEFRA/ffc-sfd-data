@@ -54,3 +54,10 @@ extends:
         - ffc-sfd-data-<environment>
       variables:
         - ffc-sfd-data-APPINSIGHTS-CONNECTIONSTRING
+        - ffc-sfd-data-APIM-CLIENT-ID
+        - ffc-sfd-data-APIM-CLIENT-SECRET
+        - ffc-sfd-data-APIM-SCOPE
+        - ffc-sfd-data-APIM-OCP-SUBSCRIPTION-KEY
+        - ffc-sfd-data-APIM-AUTHORIZATION-URL
+        - ffc-sfd-data-APIM-HOST
+        - ffc-sfd-data-REDIS-PASSWORD

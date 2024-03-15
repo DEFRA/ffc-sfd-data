@@ -1,3 +1,3 @@
 - key: APPINSIGHTS_CONNECTIONSTRING
-  value: "{{servicename}}-APPINSIGHTS-CONNECTIONSTRING"
+  value: "{{servicename}}-APPINSIGHTS_CONNECTIONSTRING"
   type: "keyvault"

@@ -81,7 +81,7 @@ variableGroups:
     - ffc-sfd-data-snd2
     - ffc-sfd-data-snd3
 variables:
-    - ffc-sfd-data-APPINSIGHTS-CONNECTIONSTRING
+    - ffc-sfd-data-APPINSIGHTS_CONNECTIONSTRING
 ```
 
 ## Licence

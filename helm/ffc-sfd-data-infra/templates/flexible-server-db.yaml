@@ -1,4 +1,0 @@
-{{- include "adp-aso-helm-library.flexible-servers-db" (list . "ffc-sfd-data.flexible-servers-db") -}}
-
-{{- define "ffc-sfd-data.flexible-servers-db" }}
-{{ end -}}
