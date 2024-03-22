@@ -26,9 +26,9 @@ type Organisation {
   vendor: String
   trader: String
   name: String
-  landline String
-  mobile String
-  email String
+  landline: String
+  mobile: String
+  email: String
   address: Address
   locked: Boolean
   type: String
@@ -41,29 +41,29 @@ type PersonOrganisations {
 }
 
 type Address {
-  address1 String
-  address2 String
-  address3 String
-  address4 String
-  address5 String
-  city String
-  county String
-  postcode String
-  country String
+  address1: String
+  address2: String
+  address3: String
+  address4: String
+  address5: String
+  city: String
+  county: String
+  postcode: String
+  country: String
 }
 
 type Person {
-  id Int
-  crn String
-  title String
-  firstName String
-  lastName String
-  landline String
-  mobile String
-  email String
+  id: Int
+  crn: String
+  title: String
+  firstName: String
+  lastName: String
+  landline: String
+  mobile: String
+  email: String
   address: Address
-  doNotContact Boolean
-  locked Boolean
+  doNotContact: Boolean
+  locked: Boolean
 }
 `
 
