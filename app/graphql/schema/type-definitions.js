@@ -16,7 +16,7 @@ type Query {
 }
 
 type Permissions {
-  roles: String
+  role: String
   privileges: [String]
 }
 
