@@ -59,6 +59,7 @@ type Person {
   title: String
   firstName: String
   lastName: String
+  fullName: String
   landline: String
   mobile: String
   email: String

@@ -21,6 +21,7 @@ const resolvers = {
         title: response._data.title,
         firstName: response._data.firstName,
         lastName: response._data.lastName,
+        fullName: `${response._data.title} ${response._data.firstName} ${response._data.lastName}`,
         landline: response._data.landline,
         mobile: response._data.mobile,
         email: response._data.email,
