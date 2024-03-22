@@ -8,7 +8,7 @@ type Query {
 }
 
 type Query {
-  organisation(organisationId: organisationId!): Organisation
+  organisation(organisationId: Int!): Organisation
 }
 
 type Query {
