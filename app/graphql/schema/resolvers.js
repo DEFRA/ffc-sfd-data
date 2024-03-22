@@ -33,7 +33,8 @@ const resolvers = {
           city: response._data.address.city,
           county: response._data.address.county,
           postcode: response._data.address.postcode,
-          country: response._data.address.country
+          country: response._data.address.country,
+          fullAddress: getFullAddress(response._data.address)
         },
         doNotContact: response._data.doNotContact,
         locked: response._data.locked
@@ -59,7 +60,8 @@ const resolvers = {
           city: response._data.address.city,
           county: response._data.address.county,
           postcode: response._data.address.postcode,
-          country: response._data.address.country
+          country: response._data.address.country,
+          fullAddress: getFullAddress(response._data.address)
         },
         locked: response._data.locked,
         type: response._data.type,
@@ -74,6 +76,10 @@ const resolvers = {
       }
     }
   }
+}
+
+const getFullAddress = (address) => {
+  return Object.values(address).filter(x => x).join(', ')
 }
 
 module.exports = { resolvers }

@@ -50,6 +50,7 @@ type Address {
   county: String
   postcode: String
   country: String
+  fullAddress: String
 }
 
 type Person {
