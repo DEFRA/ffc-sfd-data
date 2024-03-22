@@ -1,17 +1,17 @@
 const typeDefs = `#graphql
 type Query {
-  customerBusinesses: CustomerBusinesses
+  personOrganisations: personOrganisations
 }
 
-type Business {
+type Organisation {
   id: Int
   sbi: String
   name: String
 }
 
-type CustomerBusinesses {
+type personOrganisations {
   crn: String
-  businesses: [Business]
+  organisations: [Organisation]
 }
 `
 
