@@ -14,7 +14,7 @@ const resolvers = {
       }
     },
     person: async (_root, _args, context) => {
-      const response = await get('/organisation/person/3337243/summary', context.crn, context.token)
+      const response = await get('/person/3337243/summary', context.crn, context.token)
       return {
         id: response._data.id,
         crn: response._data.crn,
@@ -72,8 +72,8 @@ const resolvers = {
     permissions: async (_root, args, context) => {
       const response = await get(`/SitiAgriApi/authorisation/organisation/${args.organisationId}/authorisation`, context.crn, context.token)
       return {
-        role: response._data.personRoles.filter(x => x.personId === args.personId)[0]?.role ?? 'Unknown',
-        privileges: response._data.personPrivileges.filter(x => x.personId === args.personId).map(x => (x.privilegeNames[0])) ?? []
+        role: response.data.personRoles.filter(x => x.personId === args.personId)[0]?.role ?? 'Unknown',
+        privileges: response.data.personPrivileges.filter(x => x.personId === args.personId).map(x => (x.privilegeNames[0])) ?? []
       }
     }
   }
