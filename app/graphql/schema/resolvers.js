@@ -17,7 +17,7 @@ const resolvers = {
       const response = await get('/person/3337243/summary', context.crn, context.token)
       return {
         id: response._data.id,
-        crn: response._data.crn,
+        crn: response._data.customerReferenceNumber,
         title: response._data.title,
         firstName: response._data.firstName,
         lastName: response._data.lastName,
