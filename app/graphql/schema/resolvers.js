@@ -42,7 +42,7 @@ const resolvers = {
       }
     },
     organisation: async (_root, args, context) => {
-      const response = await get(`/organisation/${args.organisationId}/summary`, context.crn, context.token)
+      const response = await get(`/organisation/${args.organisationId}`, context.crn, context.token)
       return {
         id: response._data.id,
         sbi: response._data.sbi,
@@ -65,8 +65,8 @@ const resolvers = {
           fullAddress: getFullAddress(response._data.address)
         },
         locked: response._data.locked,
-        type: response._data.type,
-        legalStatus: response._data.legalStatus
+        type: response._data.businessType.type,
+        legalStatus: response._data.legalStatus.type
       }
     },
     permissions: async (_root, args, context) => {
