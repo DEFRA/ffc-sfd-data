@@ -8,11 +8,8 @@ const getApimToken = async () => {
   const cachedToken = await get(APIM_TOKEN)
 
   if (cachedToken) {
-    console.log('Using cached APIM token')
     return cachedToken
   }
-
-  console.log('Getting new APIM token')
 
   const response = await getApimTokenFromApim()
   const token = `${response.payload.token_type} ${response.payload.access_token}`
