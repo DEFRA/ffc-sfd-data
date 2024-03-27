@@ -1,6 +1,6 @@
 const hapiApollo = require('@as-integrations/hapi').default
 const { server } = require('./server.js')
-const { apolloServer } = require('./graphql/server.js')
+const { apolloServer } = require('./graphql/apollo-server')
 
 const init = async () => {
   await apolloServer.start()

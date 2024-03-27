@@ -1,7 +1,7 @@
 {
   "name": "ffc-sfd-data",
-  "version": "0.2.19",
-  "description": "",
+  "version": "0.3.0",
+  "description": "Data integration service for Single Front Door",
   "homepage": "github.com?owner=defra&repo=ffc-sfd-data&organization=defra",
   "main": "app/index.js",
   "scripts": {
@@ -14,12 +14,17 @@
     "start:debug": "nodemon --inspect-brk=0.0.0.0 --ext js --legacy-watch app/index.js"
   },
   "author": "Defra",
-  "contributors": [],
+  "contributors": [
+    "John Watson john.watson1@defra.gov.uk",
+    "Fay Toward fay.toward@defra.gov.uk",
+    "Simon Dunn simon.dunn1@defra.gov.uk",
+    "Rana Salem rana.salem@defra.gov.uk"
+  ],
   "license": "OGL-UK-3.0",
   "dependencies": {
     "@as-integrations/hapi": "2.0.1",
     "@hapi/boom": "10.0.1",
-    "@hapi/catbox-redis": "^6.0.2",
+    "@hapi/catbox-redis": "6.0.2",
     "@hapi/hapi": "21.3.2",
     "applicationinsights": "2.9.1",
     "joi": "17.12.0"
@@ -30,7 +35,7 @@
     "jest-junit": "16.0.0",
     "nodemon": "3.0.1",
     "standard": "17.1.0",
-    "@types/jest": "^29.5.11"
+    "@types/jest": "29.5.11"
   },
   "standard": {
     "globals": [
