@@ -6,7 +6,8 @@ const schema = Joi.object().keys({
   scope: Joi.string().required(),
   ocpSubscriptionKey: Joi.string().required(),
   authorizationUrl: Joi.string().required(),
-  host: Joi.string().required()
+  hostExternal: Joi.string().required(),
+  hostInternal: Joi.string().required()
 })
 
 const config = {
@@ -15,7 +16,8 @@ const config = {
   scope: process.env.APIM_SCOPE,
   ocpSubscriptionKey: process.env.APIM_OCP_SUBSCRIPTION_KEY,
   authorizationUrl: process.env.APIM_AUTHORIZATION_URL,
-  host: process.env.APIM_HOST
+  hostExternal: process.env.APIM_HOST_EXTERNAL,
+  hostInternal: process.env.APIM_HOST_INTERNAL
 }
 
 const { error, value } = schema.validate(config)

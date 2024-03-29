@@ -19,8 +19,11 @@
 - key: APIM_AUTHORIZATION_URL
   value: "{{servicename}}-APIM-AUTHORIZATION-URL"
   type: "keyvault"
-- key: APIM_HOST
-  value: "{{servicename}}-APIM-HOST"
+- key: APIM_HOST_EXTERNAL
+  value: "{{servicename}}-APIM-HOST-EXTERNAL"
+  type: "keyvault"
+- key: APIM_HOST_INTERNAL
+  value: "{{servicename}}-APIM-HOST-INTERNAL"
   type: "keyvault"
 - key: REDIS_HOST
   value: "SNDADPINFRD3401.redis.cache.windows.net"

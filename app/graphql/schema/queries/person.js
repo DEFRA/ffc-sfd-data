@@ -2,7 +2,7 @@ const { get } = require('../../../api')
 const { getFullAddress } = require('./get-full-address')
 
 const person = async (_root, _args, context) => {
-  const response = await get('/person/3337243/summary', context.crn, context.token)
+  const response = await get('/person/3337243/summary', context)
   return {
     id: response._data.id,
     crn: response._data.customerReferenceNumber,
