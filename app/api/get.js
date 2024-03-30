@@ -1,29 +1,26 @@
 const Wreck = require('@hapi/wreck')
-const { apimConfig } = require('../config')
 const { getApimToken } = require('./get-apim-token')
 const { get: getCachedResponse, set: setCachedResponse } = require('../cache')
 const retry = require('./retry')
+const { getCacheKey } = require('./get-cache-key')
+const { getHost } = require('./get-host')
+const { getApimHeaders } = require('./get-apim-headers')
 
-const get = async (path, context) => {
-  const requester = context.crn ? { type: 'crn', value: context.crn } : { type: 'email', value: context.email }
-  const cachedResponse = await getCachedResponse(`${path}-${requester.value}`)
-  return cachedResponse ?? retry(() => getFromApim(path, requester, context.token))
+const get = async (path, headers) => {
+  const cacheKey = getCacheKey(path, headers)
+  const cachedResponse = await getCachedResponse(cacheKey)
+  return cachedResponse ?? retry(() => getFromApim(path, headers, cacheKey))
 }
 
-const getFromApim = async (path, requester, token) => {
+const getFromApim = async (path, headers, cacheKey) => {
   const apimToken = await getApimToken()
-  const host = requester.type === 'crn' ? apimConfig.hostExternal : apimConfig.hostInternal
+  const host = getHost(headers)
   const { payload } = await Wreck.get(`${host}${path}`, {
-    headers: {
-      [requester.type]: requester.value,
-      'X-Forwarded-Authorization': token,
-      Authorization: apimToken,
-      'Ocp-Apim-Subscription-Key': apimConfig.ocpSubscriptionKey
-    },
+    headers: getApimHeaders(headers, apimToken),
     json: true
   })
 
-  await setCachedResponse(`${path}-${requester.value}`, payload)
+  await setCachedResponse(cacheKey, payload)
 
   return payload
 }

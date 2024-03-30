@@ -11,11 +11,7 @@ const init = async () => {
       apolloServer,
       path: '/graphql',
       context: ({ request }) => {
-        return {
-          token: request.headers.authorization,
-          crn: request.headers.crn,
-          email: request.headers.email
-        }
+        return { headers: request.headers }
       }
     }
   })
