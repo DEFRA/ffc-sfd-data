@@ -2,7 +2,6 @@ const { apimConfig } = require('../config')
 
 const getApimHeaders = (headers, apimToken) => {
   const apimHeaders = {
-    'X-Forwarded-Authorization': headers.authorization,
     'Ocp-Apim-Subscription-Key': apimConfig.ocpSubscriptionKey,
     Authorization: apimToken
   }
@@ -13,6 +12,10 @@ const getApimHeaders = (headers, apimToken) => {
 
   if (headers.email) {
     apimHeaders.email = headers.email
+  }
+
+  if (headers.authorization) {
+    apimHeaders['X-Forwarded-Authorization'] = headers.authorization
   }
 
   return apimHeaders
