@@ -15,6 +15,11 @@ type Query {
   permissions(organisationId: Int!, personId: Int!): Permissions
 }
 
+type Query {
+  notification(notificationId: Int!): Notification
+}
+
+
 type Permissions {
   role: String
   privileges: [String]
@@ -66,6 +71,11 @@ type Person {
   address: Address
   doNotContact: Boolean
   locked: Boolean
+}
+
+type Notification {
+  id: Int
+  content: String
 }
 `
 
