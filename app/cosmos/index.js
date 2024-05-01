@@ -1,0 +1,9 @@
+const { messagesDatabase } = require('./messages-database')
+
+const cosmos = async () => {
+  const cosmos = {}
+  cosmos.messagesDatabase = await messagesDatabase()
+  return cosmos
+}
+
+module.exports = cosmos

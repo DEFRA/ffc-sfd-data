@@ -15,6 +15,14 @@ type Query {
   permissions(organisationId: Int!, personId: Int!): Permissions
 }
 
+type Query {
+  notification(notificationId: Int!): Notification
+}
+
+type Query {
+  notificationsBySbi(sbi: String!): NotificationsBySbi
+}
+
 type Permissions {
   role: String
   privileges: [String]
@@ -66,6 +74,16 @@ type Person {
   address: Address
   doNotContact: Boolean
   locked: Boolean
+}
+
+type Notification {
+  id: Int
+  content: String
+}
+
+type NotificationsBySbi {
+  sbi: String!
+  notifications: [Notification]
 }
 `
 
