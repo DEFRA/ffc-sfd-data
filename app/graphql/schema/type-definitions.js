@@ -19,6 +19,9 @@ type Query {
   notification(notificationId: Int!): Notification
 }
 
+type Query {
+  notificationsBySbi(sbi: String!): NotificationsBySbi
+}
 
 type Permissions {
   role: String
@@ -76,6 +79,11 @@ type Person {
 type Notification {
   id: Int
   content: String
+}
+
+type NotificationsBySbi {
+  sbi: String!
+  notifications: [Notification]
 }
 `
 

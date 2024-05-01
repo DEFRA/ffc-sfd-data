@@ -1,4 +1,11 @@
-const { personOrganisations, person, organisation, permissions, notification } = require('./queries')
+const {
+  personOrganisations,
+  person,
+  organisation,
+  permissions,
+  notification,
+  notificationsBySbi
+} = require('./queries')
 
 const resolvers = {
   Query: {
@@ -6,7 +13,8 @@ const resolvers = {
     person,
     organisation,
     permissions,
-    notification
+    notification,
+    notificationsBySbi
   }
 }
 

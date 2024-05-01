@@ -1,23 +1,26 @@
 const cosmos = require('../../../cosmos')
 const { cosmosConfig } = require('../../../config')
 
-const notification = async (_root, args, context) => {
+const notificationsBySbi = async (_root, args, context) => {
   const { messagesDatabase } = await cosmos()
   const querySpec =
     {
-      query: 'SELECT * FROM notifications n WHERE n.id = @id',
+      query: 'SELECT * FROM notifications n WHERE n.sbi = @sbi',
       parameters: [
-        { name: '@id', value: `${args.notificationId}` }
+        { name: '@sbi', value: `${args.sbi}` }
       ]
     }
   const response = await messagesDatabase.container(cosmosConfig.messagesContainer).items.query(querySpec).fetchAll()
-
+  console.log(args)
   return {
-    id: response.resources[0]?.id,
-    content: response.resources[0]?.content
+    sbi: args.sbi,
+    notifications: response.resources.map(x => ({
+      id: x.id,
+      content: x.content
+    }))
   }
 }
 
 module.exports = {
-  notification
+  notificationsBySbi
 }
