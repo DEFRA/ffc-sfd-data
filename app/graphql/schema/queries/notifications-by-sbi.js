@@ -11,7 +11,6 @@ const notificationsBySbi = async (_root, args, context) => {
       ]
     }
   const response = await messagesDatabase.container(cosmosConfig.messagesContainer).items.query(querySpec).fetchAll()
-  console.log(args)
   return {
     sbi: args.sbi,
     notifications: response.resources.map(x => ({

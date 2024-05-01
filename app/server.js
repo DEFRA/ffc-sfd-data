@@ -22,8 +22,7 @@ server.app.cache = cache
 
 const routes = [].concat(
   require('./routes/healthy'),
-  require('./routes/healthz'),
-  require('./routes/cosmos')
+  require('./routes/healthz')
 )
 
 server.route(routes)
