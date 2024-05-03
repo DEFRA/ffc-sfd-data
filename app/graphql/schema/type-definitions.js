@@ -23,6 +23,10 @@ type Query {
   notificationsBySbi(sbi: String!): NotificationsBySbi
 }
 
+type Query {
+  applicationsBySbi(sbi: String!): ApplicationsBySbi
+}
+
 type Permissions {
   role: String
   privileges: [String]
@@ -84,6 +88,16 @@ type Notification {
 type NotificationsBySbi {
   sbi: String!
   notifications: [Notification]
+}
+
+type Application {
+  id: Int
+  content: String
+}
+
+type ApplicationsBySbi {
+  sbi: String!
+  applications: [Application]
 }
 `
 
