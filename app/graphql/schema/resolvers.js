@@ -5,7 +5,8 @@ const {
   organisation,
   permissions,
   personOrganisations,
-  person
+  person,
+  payments
 } = require('./queries')
 
 const resolvers = {
@@ -14,6 +15,7 @@ const resolvers = {
     notification,
     notificationsBySbi,
     organisation,
+    payments,
     permissions,
     personOrganisations,
     person

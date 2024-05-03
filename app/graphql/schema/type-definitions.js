@@ -27,6 +27,10 @@ type Query {
   applicationsBySbi(sbi: String!): ApplicationsBySbi
 }
 
+type Query {
+  payments(sbi: String!): Payments
+}
+
 type Permissions {
   role: String
   privileges: [String]
@@ -98,6 +102,16 @@ type Application {
 type ApplicationsBySbi {
   sbi: String!
   applications: [Application]
+}
+
+type Payments {
+  sbi: String!
+  payments: [Payment]
+}
+
+type Payment {
+  id: Int
+  content: String
 }
 `
 

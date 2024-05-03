@@ -26,6 +26,8 @@ services:
       COSMOS_MESSAGES_CONTAINER: ${COSMOS_MESSAGES_CONTAINER:-messages-container}
       COSMOS_APPLICATIONS_DATABASE: ${COSMOS_APPLICATION_DATABASE:-ffc-sfd-customer-receiver-applications}
       COSMOS_APPLICATIONS_CONTAINER: ${COSMOS_APPLICATION_CONTAINER:-applications-container}
+      COSMOS_PAYMENTS_DATABASE: ${COSMOS_PAYMENTS_DATABASE:-ffc-sfd-customer-receiver-payments}
+      COSMOS_PAYMENTS_CONTAINER: ${COSMOS_PAYMENTS_CONTAINER:-payments-container}
 
   ffc-sfd-data-postgres:
     image: postgres:11.4-alpine

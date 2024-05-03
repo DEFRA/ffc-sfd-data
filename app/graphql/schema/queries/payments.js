@@ -1,8 +1,8 @@
 const cosmos = require('../../../cosmos')
 const { cosmosConfig } = require('../../../config')
 
-const applicationsBySbi = async (_root, args, context) => {
-  const { applicationsDatabase } = await cosmos()
+const payments = async (_root, args, context) => {
+  const { paymentsDatabase } = await cosmos()
   const querySpec =
     {
       query: 'SELECT * FROM applications a WHERE a.sbi = @sbi',
@@ -10,7 +10,7 @@ const applicationsBySbi = async (_root, args, context) => {
         { name: '@sbi', value: `${args.sbi}` }
       ]
     }
-  const response = await applicationsDatabase.container(cosmosConfig.applicationsContainer).items.query(querySpec).fetchAll()
+  const response = await paymentsDatabase.container(cosmosConfig.paymentsContainer).items.query(querySpec).fetchAll()
   return {
     sbi: args.sbi,
     applications: response.resources.map(x => ({
@@ -21,5 +21,5 @@ const applicationsBySbi = async (_root, args, context) => {
 }
 
 module.exports = {
-  applicationsBySbi
+  payments
 }
