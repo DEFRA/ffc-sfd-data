@@ -6,6 +6,7 @@ const { payments } = require('./payments')
 const { permissions } = require('./permissions')
 const { personOrganisations } = require('./person-organisations')
 const { person } = require('./person')
+const { preferences } = require('./preferences')
 
 module.exports = {
   applicationsBySbi,
@@ -15,5 +16,6 @@ module.exports = {
   payments,
   permissions,
   personOrganisations,
-  person
+  person,
+  preferences
 }

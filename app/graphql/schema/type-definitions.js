@@ -31,6 +31,10 @@ type Query {
   payments(sbi: String!): Payments
 }
 
+type Query {
+  preferences(sbi: String!): Preferences
+}
+
 type Permissions {
   role: String
   privileges: [String]
@@ -110,6 +114,16 @@ type Payments {
 }
 
 type Payment {
+  id: Int
+  content: String
+}
+
+type Preferences {
+  sbi: String!
+  preferences: [Preference]
+}
+
+type Preference {
   id: Int
   content: String
 }

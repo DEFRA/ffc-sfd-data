@@ -6,7 +6,8 @@ const {
   permissions,
   personOrganisations,
   person,
-  payments
+  payments,
+  preferences
 } = require('./queries')
 
 const resolvers = {
@@ -18,7 +19,8 @@ const resolvers = {
     payments,
     permissions,
     personOrganisations,
-    person
+    person,
+    preferences
   }
 }
 

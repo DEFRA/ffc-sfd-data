@@ -28,6 +28,8 @@ services:
       COSMOS_APPLICATIONS_CONTAINER: ${COSMOS_APPLICATION_CONTAINER:-applications-container}
       COSMOS_PAYMENTS_DATABASE: ${COSMOS_PAYMENTS_DATABASE:-ffc-sfd-customer-receiver-payments}
       COSMOS_PAYMENTS_CONTAINER: ${COSMOS_PAYMENTS_CONTAINER:-payments-container}
+      COSMOS_PREFERENCES_DATABASE: ${COSMOS_PREFERENCES_DATABASE:-ffc-sfd-customer-receiver-preferences}
+      COSMOS_PREFERENCES_CONTAINER: ${COSMOS_PREFERENCES_CONTAINER:-preferences-container}
 
   ffc-sfd-data-postgres:
     image: postgres:11.4-alpine

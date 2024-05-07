@@ -8,7 +8,9 @@ const schema = Joi.object({
   applicationsDatabase: Joi.string().required(),
   applicationsContainer: Joi.string().required(),
   paymentsDatabase: Joi.string().required(),
-  paymentsContainer: Joi.string().required()
+  paymentsContainer: Joi.string().required(),
+  preferencesDatabase: Joi.string().required(),
+  preferencesContainer: Joi.string().required()
 })
 
 const config = {
@@ -19,7 +21,9 @@ const config = {
   applicationsDatabase: process.env.COSMOS_APPLICATIONS_DATABASE,
   applicationsContainer: process.env.COSMOS_APPLICATIONS_CONTAINER,
   paymentsDatabase: process.env.COSMOS_PAYMENTS_DATABASE,
-  paymentsContainer: process.env.COSMOS_PAYMENTS_CONTAINER
+  paymentsContainer: process.env.COSMOS_PAYMENTS_CONTAINER,
+  preferencesDatabase: process.env.COSMOS_PREFERENCES_DATABASE,
+  preferencesContainer: process.env.COSMOS_PREFERENCES_CONTAINER
 }
 
 const { error, value } = schema.validate(config, { abortEarly: false })
