@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  cosmos-start:
+    image: alpine
+    environment:
+      AZURE_COSMOS_HOST: https://cosmos-db:8081
+      LOCAL_COSMOS_HOST: http://localhost:8081 
+    entrypoint: >
+      sh -c "/scripts/cosmos-up"
+    depends_on:
+      - cosmos-db
+    volumes:
+      - ./scripts:/scripts
+
+  cosmos-db:
+    container_name: cosmos-db
+    image: mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator
+    tty: true
+    restart: always
+    ports:
+      - "8081:8081"
+      - "10250:10250"
+      - "10251:10251"
+      - "10252:10252"
+      - "10253:10253"
+      - "10254:10254"
+      - "10255:10255"
+    environment:
+      AZURE_COSMOS_EMULATOR_PARTITION_COUNT: 5
+      AZURE_COSMOS_EMULATOR_ENABLE_DATA_PERSISTENCE: true
+      AZURE_COSMOS_EMULATOR_IP_ADDRESS_OVERRIDE:
+    volumes:
+      - cosmos_data:/var/lib/cosmosdb/data
+        
+volumes:
+    cosmos_data:   
