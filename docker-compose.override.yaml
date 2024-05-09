@@ -11,6 +11,10 @@ services:
     ports:
       - "3004:3004"
       - "9004:9229"
+    command: >
+      sh -c "
+      ./scripts/cosmos-up &&
+      npm run start:watch"
     volumes:
       - ./app:/home/node/app
       - ./test:/home/node/test

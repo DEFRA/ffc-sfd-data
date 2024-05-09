@@ -5,8 +5,7 @@ services:
     image: alpine
     environment:
       AZURE_COSMOS_HOST: https://cosmos-db:8081
-      LOCAL_COSMOS_HOST: http://localhost:8081 
-    entrypoint: >
+    entrypoint:
       sh -c "/scripts/cosmos-up"
     depends_on:
       - cosmos-db

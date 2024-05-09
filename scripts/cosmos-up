@@ -1,4 +1,6 @@
 echo "checking cosmos is available on $AZURE_COSMOS_HOST"
+host="https://cosmos-db"
+port="8081"
 response=''
 max_tries=20
 count=0
@@ -9,8 +11,8 @@ do
 		echo "cosmos did not respond in time"
 		exit 1
 	fi
-  echo "making request to $AZURE_COSMOS_HOST"
-  response=$(wget -SO- -T 1 -t 1 --no-check-certificate $AZURE_COSMOS_HOST | grep '401 Unauthorized')
+  echo "making request to $host:$port"
+  response=$(wget -SO- -T 1 -t 1 --no-check-certificate $host:$port)
   echo "response: $response"
   
   printf '.'

@@ -19,7 +19,6 @@ services:
       APIM_AUTHORIZATION_URL: ${APIM_AUTHORIZATION_URL}
       APIM_HOST_EXTERNAL: ${APIM_HOST_EXTERNAL}
       APIM_HOST_INTERNAL: ${APIM_HOST_INTERNAL}
-      REDIS_HOST: ffc-sfd-data-redis
       COSMOS_ENDPOINT: ${COSMOS_ENDPOINT:-https://cosmos-db:8081}
       COSMOS_KEY: ${COSMOS_KEY}
       COSMOS_MESSAGES_DATABASE: ${COSMOS_MESSAGES_DATABASE:-ffc-sfd-customer-receiver-messages}
@@ -30,6 +29,7 @@ services:
       COSMOS_PAYMENTS_CONTAINER: ${COSMOS_PAYMENTS_CONTAINER:-payments-container}
       COSMOS_PREFERENCES_DATABASE: ${COSMOS_PREFERENCES_DATABASE:-ffc-sfd-customer-receiver-preferences}
       COSMOS_PREFERENCES_CONTAINER: ${COSMOS_PREFERENCES_CONTAINER:-preferences-container}
+      REDIS_HOST: ffc-sfd-data-redis
 
   ffc-sfd-data-postgres:
     image: postgres:11.4-alpine
