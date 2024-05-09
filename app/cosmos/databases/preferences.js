@@ -1,5 +1,5 @@
-const cosmosClient = require('./client')
-const { cosmosConfig } = require('../config')
+const cosmosClient = require('../client')
+const { cosmosConfig } = require('../../config')
 
 const preferencesDatabase = async () => {
   try {

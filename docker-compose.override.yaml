@@ -10,7 +10,7 @@ services:
     container_name: ffc-sfd-data-development
     command: >
       sh -c "
-        ./scripts/cosmos-wait 50
+        ./scripts/cosmos-wait 110
         npm run start:watch"
     ports:
       - "3004:3004"

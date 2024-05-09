@@ -1,7 +1,7 @@
-const { applicationsDatabase } = require('./applications-database')
-const { messagesDatabase } = require('./messages-database')
-const { paymentsDatabase } = require('./payments-database')
-const { preferencesDatabase } = require('./preferences-database')
+const { applicationsDatabase } = require('./databases/applications')
+const { messagesDatabase } = require('./databases/messages')
+const { paymentsDatabase } = require('./databases/payments')
+const { preferencesDatabase } = require('./databases/preferences')
 
 const cosmos = async () => {
   const cosmos = {}
