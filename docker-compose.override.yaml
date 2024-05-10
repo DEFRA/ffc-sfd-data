@@ -8,6 +8,10 @@ services:
       target: development
     image: ffc-sfd-data-development
     container_name: ffc-sfd-data-development
+    command: >
+      sh -c "
+        ./scripts/cosmos-wait 110
+        npm run start:watch"
     ports:
       - "3004:3004"
       - "9004:9229"

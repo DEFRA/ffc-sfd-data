@@ -1,6 +1,7 @@
 const hapiApollo = require('@as-integrations/hapi').default
 const { server } = require('./server.js')
 const { apolloServer } = require('./graphql/apollo-server')
+const { initCosmos } = require('./cosmos/init')
 
 const init = async () => {
   await apolloServer.start()
@@ -18,6 +19,7 @@ const init = async () => {
 
   await server.start()
   console.log('Server running on %s', server.info.uri)
+  await initCosmos()
 }
 
 process.on('unhandledRejection', err => {

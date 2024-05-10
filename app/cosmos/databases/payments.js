@@ -1,14 +1,14 @@
-const cosmosClient = require('./client')
-const { cosmosConfig } = require('../config')
+const cosmosClient = require('../client')
+const { cosmosConfig } = require('../../config')
 
-const messagesDatabase = async () => {
+const paymentsDatabase = async () => {
   try {
     const { database } = await cosmosClient.databases.createIfNotExists({
-      id: cosmosConfig.messagesDatabase,
+      id: cosmosConfig.paymentsDatabase,
       throughput: 400
     })
     await database.containers.createIfNotExists({
-      id: cosmosConfig.messagesContainer,
+      id: cosmosConfig.paymentsContainer,
       partitionKey: { paths: ['/id'] }
     })
 
@@ -18,4 +18,4 @@ const messagesDatabase = async () => {
   }
 }
 
-module.exports = { messagesDatabase }
+module.exports = { paymentsDatabase }
