@@ -23,6 +23,18 @@ type Query {
   notificationsBySbi(sbi: String!): NotificationsBySbi
 }
 
+type Query {
+  applicationsBySbi(sbi: String!): ApplicationsBySbi
+}
+
+type Query {
+  payments(sbi: String!): Payments
+}
+
+type Query {
+  preferences(sbi: String!): Preferences
+}
+
 type Permissions {
   role: String
   privileges: [String]
@@ -77,13 +89,48 @@ type Person {
 }
 
 type Notification {
-  id: Int
-  content: String
+  id: String
+  scheme: String
+  tags: [String]
+  sbi: String
+  heading: String
+  body: String
+  requestedDate: String
 }
 
 type NotificationsBySbi {
   sbi: String!
   notifications: [Notification]
+}
+
+type Application {
+  id: Int
+  content: String
+}
+
+type ApplicationsBySbi {
+  sbi: String!
+  applications: [Application]
+}
+
+type Payments {
+  sbi: String!
+  payments: [Payment]
+}
+
+type Payment {
+  id: Int
+  content: String
+}
+
+type Preferences {
+  sbi: String!
+  preferences: [Preference]
+}
+
+type Preference {
+  id: Int
+  content: String
 }
 `
 

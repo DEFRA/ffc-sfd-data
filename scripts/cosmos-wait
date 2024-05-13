@@ -1,0 +1,14 @@
+#!/bin/bash
+duration=$1
+remaining=$duration
+echo "Waiting $duration seconds for Cosmos DB to be ready"
+
+while [ $remaining -gt 0 ]; do
+  if (( remaining % 10 == 0 )); then
+    echo "Cosmos wait: $remaining seconds remaining"
+  fi
+  sleep 1
+  ((remaining--))
+done
+
+echo "Cosmos wait completed"

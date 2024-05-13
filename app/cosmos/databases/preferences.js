@@ -1,0 +1,21 @@
+const cosmosClient = require('../client')
+const { cosmosConfig } = require('../../config')
+
+const preferencesDatabase = async () => {
+  try {
+    const { database } = await cosmosClient.databases.createIfNotExists({
+      id: cosmosConfig.preferencesDatabase,
+      throughput: 400
+    })
+    await database.containers.createIfNotExists({
+      id: cosmosConfig.preferencesContainer,
+      partitionKey: { paths: ['/id'] }
+    })
+
+    return database
+  } catch (err) {
+    throw new Error(`Failed to create applications database: ${err.message}`)
+  }
+}
+
+module.exports = { preferencesDatabase }

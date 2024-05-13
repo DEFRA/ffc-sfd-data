@@ -8,7 +8,7 @@ services:
     depends_on:
       - ffc-sfd-data-redis
       - ffc-sfd-data-postgres
-      - cosmos-db
+      - ffc-sfd-data-cosmos-db
     environment:
       APPINSIGHTS_CLOUDROLE: ffc-sfd-data-local
       APPINSIGHTS_CONNECTIONSTRING: ${APPINSIGHTS_CONNECTIONSTRING}
@@ -19,11 +19,9 @@ services:
       APIM_AUTHORIZATION_URL: ${APIM_AUTHORIZATION_URL}
       APIM_HOST_EXTERNAL: ${APIM_HOST_EXTERNAL}
       APIM_HOST_INTERNAL: ${APIM_HOST_INTERNAL}
-      REDIS_HOST: ffc-sfd-data-redis
-      COSMOS_ENDPOINT: ${COSMOS_ENDPOINT}
+      COSMOS_ENDPOINT: ${COSMOS_ENDPOINT:-https://ffc-sfd-data-cosmos-db:8081}
       COSMOS_KEY: ${COSMOS_KEY}
-      COSMOS_MESSAGES_DATABASE: ${COSMOS_MESSAGES_DATABASE}
-      COSMOS_MESSAGES_CONTAINER: ${COSMOS_MESSAGES_CONTAINER}
+      REDIS_HOST: ffc-sfd-data-redis
 
   ffc-sfd-data-postgres:
     image: postgres:11.4-alpine
@@ -35,30 +33,11 @@ services:
   ffc-sfd-data-redis:
     image: redis:6.2.7
   
-  cosmos-db:
-    container_name: cosmos-db
+  ffc-sfd-data-cosmos-db:
     image: mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator
     tty: true
     restart: always
-    ports:
-      - "8081:8081"
-      - "8900:8900"
-      - "8901:8901"
-      - "8979:8979"
-      - "10250:10250"
-      - "10251:10251"
-      - "10252:10252"
-      - "10253:10253"
-      - "10254:10254"
-      - "10255:10255"
-      - "10256:10256"
-      - "10350:10350"
     environment:
       AZURE_COSMOS_EMULATOR_PARTITION_COUNT: 5
       AZURE_COSMOS_EMULATOR_ENABLE_DATA_PERSISTENCE: true
       AZURE_COSMOS_EMULATOR_IP_ADDRESS_OVERRIDE:
-    volumes:
-      - cosmos_data:/var/lib/cosmosdb/data
-        
-volumes:
-    cosmos_data:   

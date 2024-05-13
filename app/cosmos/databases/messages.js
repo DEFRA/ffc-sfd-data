@@ -1,5 +1,5 @@
-const cosmosClient = require('./client')
-const { cosmosConfig } = require('../config')
+const cosmosClient = require('../client')
+const { cosmosConfig } = require('../../config')
 
 const messagesDatabase = async () => {
   try {
@@ -14,7 +14,7 @@ const messagesDatabase = async () => {
 
     return database
   } catch (err) {
-    console.log(err)
+    throw new Error(`Failed to create applications database: ${err.message}`)
   }
 }
 

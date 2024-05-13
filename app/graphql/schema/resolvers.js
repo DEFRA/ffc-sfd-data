@@ -1,20 +1,26 @@
 const {
-  personOrganisations,
-  person,
+  applicationsBySbi,
+  notification,
+  notificationsBySbi,
   organisation,
   permissions,
-  notification,
-  notificationsBySbi
+  personOrganisations,
+  person,
+  payments,
+  preferences
 } = require('./queries')
 
 const resolvers = {
   Query: {
+    applicationsBySbi,
+    notification,
+    notificationsBySbi,
+    organisation,
+    payments,
+    permissions,
     personOrganisations,
     person,
-    organisation,
-    permissions,
-    notification,
-    notificationsBySbi
+    preferences
   }
 }
 
