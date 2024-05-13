@@ -15,7 +15,7 @@ const initCosmos = async () => {
 
     await Promise.all(createDatabases)
   } catch (err) {
-    console.log(err)
+    throw new Error(`Failed to create databases: ${err.message}`)
   }
 }
 

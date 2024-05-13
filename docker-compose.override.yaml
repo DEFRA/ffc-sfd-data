@@ -35,7 +35,6 @@ services:
     command: redis-server --dir /data --save 5 1
 
   ffc-sfd-data-cosmos-db:
-    container_name: ffc-sfd-data-cosmos-db
     image: mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator
     tty: true
     restart: always
@@ -57,3 +56,4 @@ services:
 volumes:
   postgres_data:
   redis_data:
+  cosmos_data:   
