@@ -89,8 +89,13 @@ type Person {
 }
 
 type Notification {
-  id: Int
-  content: String
+  id: String
+  scheme: String
+  tags: [String]
+  sbi: String
+  heading: String
+  body: String
+  requestedDate: String
 }
 
 type NotificationsBySbi {
