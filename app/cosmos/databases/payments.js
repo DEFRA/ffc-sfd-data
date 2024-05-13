@@ -14,7 +14,7 @@ const paymentsDatabase = async () => {
 
     return database
   } catch (err) {
-    console.log(err)
+    throw new Error(`Failed to create applications database: ${err.message}`)
   }
 }
 

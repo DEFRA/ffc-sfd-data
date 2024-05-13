@@ -34,6 +34,26 @@ services:
       - redis_data:/data
     command: redis-server --dir /data --save 5 1
 
+  ffc-sfd-data-cosmos-db:
+    container_name: ffc-sfd-data-cosmos-db
+    image: mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator
+    tty: true
+    restart: always
+    ports:
+      - "8081:8081"
+      - "10250:10250"
+      - "10251:10251"
+      - "10252:10252"
+      - "10253:10253"
+      - "10254:10254"
+      - "10255:10255"
+    environment:
+      AZURE_COSMOS_EMULATOR_PARTITION_COUNT: 5
+      AZURE_COSMOS_EMULATOR_ENABLE_DATA_PERSISTENCE: true
+      AZURE_COSMOS_EMULATOR_IP_ADDRESS_OVERRIDE:
+    volumes:
+      - cosmos_data:/var/lib/cosmosdb/data  
+
 volumes:
   postgres_data:
   redis_data:
