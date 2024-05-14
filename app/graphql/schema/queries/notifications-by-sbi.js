@@ -15,7 +15,12 @@ const notificationsBySbi = async (_root, args, context) => {
     sbi: args.sbi,
     notifications: response.resources.map(x => ({
       id: x.id,
-      content: x.content
+      scheme: x.scheme,
+      tags: x.tags,
+      sbi: x.sbi,
+      heading: x.heading,
+      body: x.body,
+      requestedDate: x.requestedDate
     }))
   }
 }
