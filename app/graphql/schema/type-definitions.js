@@ -16,7 +16,7 @@ type Query {
 }
 
 type Query {
-  notification(notificationId: Int!): Notification
+  notification(id: String!): Notification
 }
 
 type Query {
@@ -92,6 +92,7 @@ type Notification {
   id: String
   scheme: String
   tags: [String]
+  crn: String
   sbi: String
   heading: String
   body: String
