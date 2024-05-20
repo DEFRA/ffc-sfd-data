@@ -11,7 +11,7 @@ const notification = async (_root, args, context) => {
       ]
     }
   const response = await messagesDatabase.container(cosmosConfig.messagesContainer).items.query(querySpec).fetchAll()
-  console.log(response.resources[0])
+
   return {
     id: response.resources[0]?.id,
     scheme: response.resources[0]?.scheme,
