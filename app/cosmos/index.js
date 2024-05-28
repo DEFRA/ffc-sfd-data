@@ -9,6 +9,7 @@ const cosmos = async () => {
   cosmos.paymentsDatabase = await paymentsDatabase()
   cosmos.applicationsDatabase = await applicationsDatabase()
   cosmos.preferencesDatabase = await preferencesDatabase()
+  cosmos.queriesDatabase = await queriesDatabase()
   return cosmos
 }
 
