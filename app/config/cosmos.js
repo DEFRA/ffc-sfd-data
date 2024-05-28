@@ -1,8 +1,8 @@
 const Joi = require('joi')
 
 const schema = Joi.object({
-  endpoint: Joi.string().required(),
-  key: Joi.string().required(),
+  endpoint: Joi.string(),
+  key: Joi.string(),
   messagesDatabase: Joi.string().default('ffc-sfd-customer-receiver-messages'),
   messagesContainer: Joi.string().default('messages-container'),
   applicationsDatabase: Joi.string().default('ffc-sfd-customer-receiver-applications'),

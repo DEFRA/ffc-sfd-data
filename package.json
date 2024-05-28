@@ -1,6 +1,6 @@
 {
   "name": "ffc-sfd-data",
-  "version": "0.6.2",
+  "version": "0.6.3",
   "description": "Data integration service for Single Front Door",
   "homepage": "github.com?owner=defra&repo=ffc-sfd-data&organization=defra",
   "main": "app/index.js",
