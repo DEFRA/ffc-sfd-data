@@ -10,7 +10,9 @@ const schema = Joi.object({
   paymentsDatabase: Joi.string().default('ffc-sfd-customer-receiver-payments'),
   paymentsContainer: Joi.string().default('payments-container'),
   preferencesDatabase: Joi.string().default('ffc-sfd-customer-receiver-preferences'),
-  preferencesContainer: Joi.string().default('preferences-container')
+  preferencesContainer: Joi.string().default('preferences-container'),
+  queriesDatabase: Joi.string().default('ffc-sfd-customer-receiver-queries'),
+  queriesContainer: Joi.string().default('queries-container')
 })
 
 const config = {
@@ -23,7 +25,9 @@ const config = {
   paymentsDatabase: process.env.COSMOS_PAYMENTS_DATABASE,
   paymentsContainer: process.env.COSMOS_PAYMENTS_CONTAINER,
   preferencesDatabase: process.env.COSMOS_PREFERENCES_DATABASE,
-  preferencesContainer: process.env.COSMOS_PREFERENCES_CONTAINER
+  preferencesContainer: process.env.COSMOS_PREFERENCES_CONTAINER,
+  queriesDatabase: process.env.COSMOS_QUERIES_DATABASE,
+  queriesContainer: process.env.COSMOS_QUERIES_CONTAINER
 }
 
 const { error, value } = schema.validate(config, { abortEarly: false })
