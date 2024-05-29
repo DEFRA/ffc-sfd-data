@@ -40,6 +40,10 @@ type Query {
 }
 
 type Query {
+  customerQueriesBySbi(sbi: String!): CustomerQueriesBySbi
+}
+
+type Query {
   allCustomerQueries: AllCustomerQueries
 }
 
@@ -144,7 +148,15 @@ type Preference {
 
 type CustomerQuery {
   id: String
-  content: String
+  crn: String
+  sbi: String
+  heading: String
+  body: String 
+}
+
+type CustomerQueriesBySbi {
+  sbi: String!
+  customerQueries: [CustomerQuery]
 }
 
 type AllCustomerQueries {

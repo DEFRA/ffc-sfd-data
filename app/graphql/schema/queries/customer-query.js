@@ -16,7 +16,10 @@ const customerQuery = async (_root, args, context) => {
 
   return {
     id: response.resources[0]?.id,
-    content: response.resources[0]?.content
+    crn: response.resources[0]?.crn,
+    sbi: response.resources[0]?.sbi,
+    heading: response.resources[0]?.heading,
+    body: response.resources[0]?.body
   }
 }
 
