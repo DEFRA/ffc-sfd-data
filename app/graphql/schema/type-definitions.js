@@ -104,6 +104,18 @@ type NotificationsBySbi {
   notifications: [Notification]
 }
 
+type CustomerQuery {
+  id: String
+  crn: String
+  sbi: String
+  heading: String
+  body: String
+}
+
+type AllCustomerQueries {
+  customerQueries: [Query]
+}
+
 type Application {
   id: Int
   content: String
