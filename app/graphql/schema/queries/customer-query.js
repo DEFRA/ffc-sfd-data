@@ -3,10 +3,12 @@ const { cosmosConfig } = require('../../../config')
 
 const customerQuery = async (_root, args, context) => {
   const { queriesDatabase } = await cosmos()
+
   const querySpec = {
     query: 'SELECT * FROM customerQuery n WHERE n.id = @id',
     parameters: [{ name: '@id', value: `${args.id}` }]
   }
+
   const response = await queriesDatabase
     .container(cosmosConfig.queriesContainer)
     .items.query(querySpec)
