@@ -2,14 +2,14 @@ const {
   applicationsBySbi,
   notification,
   notificationsBySbi,
-  // customerQuery,
-  // allCustomerQueries,
   organisation,
   permissions,
   personOrganisations,
   person,
   payments,
-  preferences
+  preferences,
+  customerQuery,
+  allCustomerQueries
 } = require('./queries')
 
 const resolvers = {
@@ -17,14 +17,14 @@ const resolvers = {
     applicationsBySbi,
     notification,
     notificationsBySbi,
-    // customerQuery,
-    // allCustomerQueries,
     organisation,
     payments,
     permissions,
     personOrganisations,
     person,
-    preferences
+    preferences,
+    customerQuery,
+    allCustomerQueries
   }
 }
 

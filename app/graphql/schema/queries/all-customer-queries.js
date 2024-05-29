@@ -14,10 +14,7 @@ const allCustomerQueries = async (_root, args, context) => {
   return {
     customerQueries: response.resources.map((x) => ({
       id: x.id,
-      crn: x.crn,
-      sbi: x.sbi,
-      heading: x.heading,
-      body: x.body
+      content: x.content
     }))
   }
 }
