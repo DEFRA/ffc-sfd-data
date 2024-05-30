@@ -47,6 +47,15 @@ type Query {
   allCustomerQueries: AllCustomerQueries
 }
 
+type Query {
+  customerQueryResponse(id: String!): CustomerQueryResponse
+}
+
+type Query {
+  customerQueryResponsesBySbi(sbi: String!): CustomerQueryResponsesBySbi
+
+}
+
 type Permissions {
   role: String
   privileges: [String]
@@ -161,6 +170,19 @@ type CustomerQueriesBySbi {
 
 type AllCustomerQueries {
   customerQueries: [CustomerQuery]
+}
+
+type CustomerQueryResponse {
+  id: String
+  crn: String
+  sbi: String
+  responseHeading: String
+  responseBody: String 
+}
+
+type CustomerQueryResponsesBySbi {
+  sbi: String!
+  customerQueryResponses: [CustomerQueryResponse]
 }
 `
 
