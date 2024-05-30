@@ -5,14 +5,19 @@ const schema = Joi.object({
   key: Joi.string(),
   messagesDatabase: Joi.string().default('ffc-sfd-customer-receiver-messages'),
   messagesContainer: Joi.string().default('messages-container'),
-  applicationsDatabase: Joi.string().default('ffc-sfd-customer-receiver-applications'),
+  applicationsDatabase: Joi.string().default(
+    'ffc-sfd-customer-receiver-applications'
+  ),
   applicationsContainer: Joi.string().default('applications-container'),
   paymentsDatabase: Joi.string().default('ffc-sfd-customer-receiver-payments'),
   paymentsContainer: Joi.string().default('payments-container'),
-  preferencesDatabase: Joi.string().default('ffc-sfd-customer-receiver-preferences'),
+  preferencesDatabase: Joi.string().default(
+    'ffc-sfd-customer-receiver-preferences'
+  ),
   preferencesContainer: Joi.string().default('preferences-container'),
   queriesDatabase: Joi.string().default('ffc-sfd-customer-receiver-queries'),
-  queriesContainer: Joi.string().default('queries-container')
+  queriesContainer: Joi.string().default('queries-container'),
+  responsesContainer: Joi.string().default('responses-container')
 })
 
 const config = {
@@ -27,7 +32,8 @@ const config = {
   preferencesDatabase: process.env.COSMOS_PREFERENCES_DATABASE,
   preferencesContainer: process.env.COSMOS_PREFERENCES_CONTAINER,
   queriesDatabase: process.env.COSMOS_QUERIES_DATABASE,
-  queriesContainer: process.env.COSMOS_QUERIES_CONTAINER
+  queriesContainer: process.env.COSMOS_QUERIES_CONTAINER,
+  responsesContainer: process.env.COSMOS_RESPONSES_CONTAINER
 }
 
 const { error, value } = schema.validate(config, { abortEarly: false })

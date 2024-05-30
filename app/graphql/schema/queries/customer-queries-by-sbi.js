@@ -5,7 +5,7 @@ const customerQueriesBySbi = async (_root, args, context) => {
   const { queriesDatabase } = await cosmos()
 
   const querySpec = {
-    query: 'SELECT * FROM customerQueries n WHERE n.sbi = @sbi',
+    query: 'SELECT * FROM customerQueries cq WHERE cq.sbi = @sbi',
     parameters: [{ name: '@sbi', value: `${args.sbi}` }]
   }
 

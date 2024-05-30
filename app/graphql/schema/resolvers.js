@@ -10,9 +10,7 @@ const {
   preferences,
   customerQuery,
   customerQueriesBySbi,
-  allCustomerQueries,
-  customerQueryResponse,
-  customerQueryResponsesBySbi
+  allCustomerQueries
 } = require('./queries')
 
 const resolvers = {
@@ -28,9 +26,7 @@ const resolvers = {
     preferences,
     customerQuery,
     customerQueriesBySbi,
-    allCustomerQueries,
-    customerQueryResponse,
-    customerQueryResponsesBySbi
+    allCustomerQueries
   }
 }
 
