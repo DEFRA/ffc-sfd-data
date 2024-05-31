@@ -12,6 +12,8 @@ ARG PORT_DEBUG
 ENV PORT ${PORT}
 EXPOSE ${PORT} ${PORT_DEBUG}
 
+USER root
+RUN apk --no-cache add curl
 COPY --chown=node:node package*.json ./
 RUN npm install
 COPY --chown=node:node . .

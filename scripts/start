@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 if [ -z "$(docker network ls --filter name=^ffc-sfd$ --format={{.Name}})" ]; then
   echo "Creating ffc-sfd Docker network"
   docker network create ffc-sfd
