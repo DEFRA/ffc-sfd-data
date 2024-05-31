@@ -11,10 +11,6 @@ const queriesDatabase = async () => {
       id: cosmosConfig.queriesContainer,
       partitionKey: { paths: ['/id'] }
     })
-    await database.containers.createIfNotExists({
-      id: cosmosConfig.responsesContainer,
-      partitionKey: { paths: ['/id'] }
-    })
 
     return database
   } catch (err) {
