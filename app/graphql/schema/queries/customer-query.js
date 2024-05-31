@@ -8,12 +8,10 @@ const customerQuery = async (_root, args, context) => {
     query: 'SELECT * FROM customerQuery cq WHERE cq.id = @id',
     parameters: [{ name: '@id', value: `${args.id}` }]
   }
-
   const response = await queriesDatabase
     .container(cosmosConfig.queriesContainer)
     .items.query(querySpec)
     .fetchAll()
-
   return {
     id: response.resources[0]?.id,
     crn: response.resources[0]?.crn,

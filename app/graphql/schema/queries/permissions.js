@@ -1,11 +1,7 @@
 const { get } = require('../../../api')
 
 const permissions = async (_root, args, context) => {
-  const response = await get(
-    `/SitiAgriApi/authorisation/organisation/${args.organisationId}/authorisation`,
-    context.headers
-  )
-
+  const response = await get(`/SitiAgriApi/authorisation/organisation/${args.organisationId}/authorisation`, context.headers)
   return {
     role:
       response.data.personRoles.filter((x) => x.personId === args.personId)[0]
