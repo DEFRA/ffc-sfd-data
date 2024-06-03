@@ -3,6 +3,7 @@ const { getFullAddress } = require('./get-full-address')
 
 const person = async (_root, _args, context) => {
   const response = await get('/person/3337243/summary', context.headers)
+
   return {
     id: response._data.id,
     crn: response._data.customerReferenceNumber,
