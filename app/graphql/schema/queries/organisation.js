@@ -2,7 +2,11 @@ const { get } = require('../../../api')
 const { getFullAddress } = require('./get-full-address')
 
 const organisation = async (_root, args, context) => {
-  const response = await get(`/organisation/${args.organisationId}`, context.headers)
+  const response = await get(
+    `/organisation/${args.organisationId}`,
+    context.headers
+  )
+
   return {
     id: response._data.id,
     sbi: response._data.sbi,
