@@ -22,18 +22,7 @@ const schema = Joi.object({
 
 const config = {
   endpoint: process.env.COSMOS_ENDPOINT,
-  key: process.env.COSMOS_KEY,
-  messagesDatabase: process.env.COSMOS_MESSAGES_DATABASE,
-  messagesContainer: process.env.COSMOS_MESSAGES_CONTAINER,
-  applicationsDatabase: process.env.COSMOS_APPLICATIONS_DATABASE,
-  applicationsContainer: process.env.COSMOS_APPLICATIONS_CONTAINER,
-  paymentsDatabase: process.env.COSMOS_PAYMENTS_DATABASE,
-  paymentsContainer: process.env.COSMOS_PAYMENTS_CONTAINER,
-  preferencesDatabase: process.env.COSMOS_PREFERENCES_DATABASE,
-  preferencesContainer: process.env.COSMOS_PREFERENCES_CONTAINER,
-  queriesDatabase: process.env.COSMOS_QUERIES_DATABASE,
-  queriesContainer: process.env.COSMOS_QUERIES_CONTAINER,
-  responsesContainer: process.env.COSMOS_RESPONSES_CONTAINER
+  key: process.env.COSMOS_KEY
 }
 
 const { error, value } = schema.validate(config, { abortEarly: false })
