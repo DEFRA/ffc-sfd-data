@@ -5,15 +5,11 @@ const schema = Joi.object({
   key: Joi.string(),
   messagesDatabase: Joi.string().default('ffc-sfd-customer-receiver-messages'),
   messagesContainer: Joi.string().default('messages-container'),
-  applicationsDatabase: Joi.string().default(
-    'ffc-sfd-customer-receiver-applications'
-  ),
+  applicationsDatabase: Joi.string().default('ffc-sfd-customer-receiver-applications'),
   applicationsContainer: Joi.string().default('applications-container'),
   paymentsDatabase: Joi.string().default('ffc-sfd-customer-receiver-payments'),
   paymentsContainer: Joi.string().default('payments-container'),
-  preferencesDatabase: Joi.string().default(
-    'ffc-sfd-customer-receiver-preferences'
-  ),
+  preferencesDatabase: Joi.string().default('ffc-sfd-customer-receiver-preferences'),
   preferencesContainer: Joi.string().default('preferences-container'),
   queriesDatabase: Joi.string().default('ffc-sfd-customer-receiver-queries'),
   queriesContainer: Joi.string().default('queries-container'),
