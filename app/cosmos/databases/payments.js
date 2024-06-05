@@ -4,12 +4,10 @@ const { cosmosConfig } = require('../../config')
 const paymentsDatabase = async () => {
   try {
     const { database } = await cosmosClient.databases.createIfNotExists({
-      id: cosmosConfig.paymentsDatabase,
-      throughput: 400
+      id: cosmosConfig.paymentsDatabase
     })
     await database.containers.createIfNotExists({
-      id: cosmosConfig.paymentsContainer,
-      partitionKey: { paths: ['/id'] }
+      id: cosmosConfig.paymentsContainer
     })
 
     return database

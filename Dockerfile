@@ -14,6 +14,7 @@ EXPOSE ${PORT} ${PORT_DEBUG}
 
 USER root
 RUN apk --no-cache add curl
+USER node
 COPY --chown=node:node package*.json ./
 RUN npm install
 COPY --chown=node:node . .
