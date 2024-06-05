@@ -2,7 +2,7 @@
 
 echo "Waiting for CosmosDB at..."
 
-until curl --insecure --connect-timeout 5 --max-time 5 https://ffc-sfd-data-cosmos-db:8081/_explorer/index.html; do
+until wget --no-check-certificate --timeout=5 --tries=1 -O /dev/null -o /dev/null https://ffc-sfd-data-cosmos-db:8081/_explorer/index.html; do
     sleep 5;
     echo "Waiting for CosmosDB..."
 done;
