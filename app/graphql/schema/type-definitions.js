@@ -39,6 +39,18 @@ type Query {
   preferences(sbi: String!): Preferences
 }
 
+type Query {
+  customerQuery(id: String!): CustomerQuery
+}
+
+type Query {
+  customerQueriesBySbi(sbi: String!): CustomerQueriesBySbi
+}
+
+type Query {
+  allCustomerQueries: AllCustomerQueries
+}
+
 type Permissions {
   role: String
   privileges: [String]
@@ -136,6 +148,23 @@ type Preferences {
 type Preference {
   id: Int
   content: String
+}
+
+type CustomerQuery {
+  id: String
+  crn: String
+  sbi: String
+  heading: String
+  body: String 
+}
+
+type CustomerQueriesBySbi {
+  sbi: String!
+  customerQueries: [CustomerQuery]
+}
+
+type AllCustomerQueries {
+  customerQueries: [CustomerQuery]
 }
 `
 

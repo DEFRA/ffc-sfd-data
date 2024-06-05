@@ -7,6 +7,9 @@ const { permissions } = require('./permissions')
 const { personOrganisations } = require('./person-organisations')
 const { person } = require('./person')
 const { preferences } = require('./preferences')
+const { customerQuery } = require('./customer-query')
+const { customerQueriesBySbi } = require('./customer-queries-by-sbi')
+const { allCustomerQueries } = require('./all-customer-queries')
 
 module.exports = {
   applicationsBySbi,
@@ -17,5 +20,8 @@ module.exports = {
   permissions,
   personOrganisations,
   person,
-  preferences
+  preferences,
+  customerQuery,
+  customerQueriesBySbi,
+  allCustomerQueries
 }
