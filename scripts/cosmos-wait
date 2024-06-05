@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Waiting for CosmosDB at..."
+echo "Waiting for CosmosDB"
 
 until wget --no-check-certificate --timeout=5 --tries=1 -O /dev/null -o /dev/null https://ffc-sfd-data-cosmos-db:8081/_explorer/index.html; do
     sleep 5;
