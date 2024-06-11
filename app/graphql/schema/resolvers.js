@@ -1,3 +1,4 @@
+const { createQuery } = require('./mutations')
 const {
   applicationsBySbi,
   notification,
@@ -27,7 +28,11 @@ const resolvers = {
     customerQuery,
     customerQueriesBySbi,
     allCustomerQueries
+  },
+  Mutation: {
+    createQuery
   }
+
 }
 
 module.exports = { resolvers }
