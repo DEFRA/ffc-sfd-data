@@ -51,6 +51,17 @@ type Query {
   allCustomerQueries: AllCustomerQueries
 }
 
+type Mutation {
+  createQuery(crn:String! sbi: String!, heading: String!, body: String!): CreateQueryResponse
+}
+
+type CreateQueryResponse {
+    code: Int!
+    success: Boolean
+    message: String!
+    customerQuery: CustomerQuery
+}
+
 type Permissions {
   role: String
   privileges: [String]
