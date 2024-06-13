@@ -35,9 +35,3 @@ services:
   
   ffc-sfd-data-cosmos-db:
     image: mcr.microsoft.com/cosmosdb/linux/azure-cosmos-emulator
-    tty: true
-    restart: always
-    environment:
-      AZURE_COSMOS_EMULATOR_PARTITION_COUNT: 5
-      AZURE_COSMOS_EMULATOR_ENABLE_DATA_PERSISTENCE: true
-      AZURE_COSMOS_EMULATOR_IP_ADDRESS_OVERRIDE:

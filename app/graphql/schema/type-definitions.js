@@ -4,12 +4,16 @@ type Query {
 }
 
 type Query {
+
+
   person: Person
 }
 
 type Query {
   organisation(organisationId: Int!): Organisation
 }
+
+
 
 type Query {
   permissions(organisationId: Int!, personId: Int!): Permissions
