@@ -14,8 +14,8 @@ const customerQuery = async (_root, args, context) => {
     .fetchAll()
   return {
     id: response.resources[0]?.id,
-    crn: response.resources[0]?.crn,
-    sbi: response.resources[0]?.sbi,
+    timestamp: response.resources[0]?.timestamp,
+    internalUser: response.resources[0]?.internalUser,
     heading: response.resources[0]?.heading,
     body: response.resources[0]?.body
   }

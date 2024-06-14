@@ -1,21 +1,16 @@
 const typeDefs = `#graphql
-scalar Timestamp
 
 type Query {
   personOrganisations: PersonOrganisations
 }
 
 type Query {
-
-
   person: Person
 }
 
 type Query {
   organisation(organisationId: Int!): Organisation
 }
-
-
 
 type Query {
   permissions(organisationId: Int!, personId: Int!): Permissions
@@ -154,9 +149,9 @@ type Preference {
 
 type CustomerQuery {
   id: String
-  timestamp: Timestamp
+  timestamp: String
   internalUser: Boolean
-  Subject: String
+  heading: String
   body: String 
 }
 

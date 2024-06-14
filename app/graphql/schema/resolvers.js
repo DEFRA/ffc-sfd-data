@@ -13,10 +13,7 @@ const {
   allCustomerQueries
 } = require('./queries')
 
-const { timestamp } = require('./custom-scalar-types')
-
 const resolvers = {
-  Timestamp: timestamp,
   Query: {
     applicationsBySbi,
     notification,
@@ -30,6 +27,11 @@ const resolvers = {
     customerQuery,
     customerQueriesBySbi,
     allCustomerQueries
+  },
+  CustomerQuery: {
+    timestamp: (parent, args, context, info) => {
+      return new Date().toISOString()
+    }
   }
 }
 
