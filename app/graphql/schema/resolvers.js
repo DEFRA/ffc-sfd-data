@@ -13,7 +13,10 @@ const {
   allCustomerQueries
 } = require('./queries')
 
+const { timestamp } = require('./custom-scalar-types')
+
 const resolvers = {
+  Timestamp: timestamp,
   Query: {
     applicationsBySbi,
     notification,

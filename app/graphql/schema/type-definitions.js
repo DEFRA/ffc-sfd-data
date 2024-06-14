@@ -1,4 +1,6 @@
 const typeDefs = `#graphql
+scalar Timestamp
+
 type Query {
   personOrganisations: PersonOrganisations
 }
@@ -152,19 +154,21 @@ type Preference {
 
 type CustomerQuery {
   id: String
-  crn: String
-  sbi: String
-  heading: String
+  timestamp: Timestamp
+  internalUser: Boolean
+  Subject: String
   body: String 
 }
 
 type CustomerQueriesBySbi {
+  ticketId: String!
+  crn: String
   sbi: String!
   customerQueries: [CustomerQuery]
 }
 
 type AllCustomerQueries {
-  customerQueries: [CustomerQuery]
+  customerQueriesBySbi: [CustomerQueriesBySbi]
 }
 `
 
