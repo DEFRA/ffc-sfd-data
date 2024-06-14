@@ -1,4 +1,5 @@
 const typeDefs = `#graphql
+scalar Timestamp
 
 type Query {
   personOrganisations: PersonOrganisations
@@ -149,7 +150,7 @@ type Preference {
 
 type CustomerQuery {
   id: String
-  timestamp: String
+  timestamp: Timestamp
   internalUser: Boolean
   heading: String
   body: String 
