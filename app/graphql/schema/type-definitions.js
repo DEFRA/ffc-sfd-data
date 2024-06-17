@@ -150,10 +150,10 @@ type Preference {
 
 type CustomerQuery {
   id: String
-  timestamp: Timestamp
+  _ts: String
   internalUser: Boolean
   heading: String
-  body: String 
+  body: String
 }
 
 type CustomerQueriesBySbi {
