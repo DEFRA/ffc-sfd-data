@@ -9,9 +9,13 @@ const {
   payments,
   preferences,
   customerQuery,
-  customerQueriesBySbi,
+  customerQueriesByTicketId,
   allCustomerQueries
 } = require('./queries')
+
+const {
+  createCustomerQuery
+} = require('./mutations')
 
 const resolvers = {
   Query: {
@@ -25,8 +29,11 @@ const resolvers = {
     person,
     preferences,
     customerQuery,
-    customerQueriesBySbi,
+    customerQueriesByTicketId,
     allCustomerQueries
+  },
+  Mutation: {
+    createCustomerQuery
   }
 }
 

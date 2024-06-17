@@ -1,22 +1,28 @@
 const cosmos = require('../../../cosmos')
 const { cosmosConfig } = require('../../../config')
 
-const customerQueriesBySbi = async (_root, args, context) => {
+const customerQueriesByTicketId = async (_root, args, context) => {
   const { queriesDatabase } = await cosmos()
+
   const querySpec = {
-    query: 'SELECT * FROM customerQueries cq WHERE cq.sbi = @sbi',
-    parameters: [{ name: '@sbi', value: `${args.sbi}` }]
+    query: 'SELECT * FROM customerQueries cq WHERE cq.ticketId = @ticketId',
+    parameters: [{ name: '@ticketId', value: `${args.ticketId}` }]
   }
+
   const response = await queriesDatabase
     .container(cosmosConfig.queriesContainer)
     .items.query(querySpec)
     .fetchAll()
+
   return {
-    sbi: args.sbi,
+    ticketId: args.ticketId,
+    crn: response.resources[0]?.crn,
+    sbi: response.resources[0]?.sbi,
     customerQueries: response.resources.map((x) => ({
       id: x.id,
-      crn: x.crn,
-      sbi: x.sbi,
+      ticketId: x.ticketId,
+      _ts: x._ts,
+      internalUser: x.internalUser,
       heading: x.heading,
       body: x.body
     }))
@@ -24,5 +30,5 @@ const customerQueriesBySbi = async (_root, args, context) => {
 }
 
 module.exports = {
-  customerQueriesBySbi
+  customerQueriesByTicketId
 }

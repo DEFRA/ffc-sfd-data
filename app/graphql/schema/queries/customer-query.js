@@ -20,6 +20,7 @@ const customerQuery = async (_root, args, context) => {
 
   return {
     id: response.resources[0]?.id,
+    ticketId: response.resources[0]?.ticketId,
     _ts: ukTimestamp,
     internalUser: response.resources[0]?.internalUser,
     heading: response.resources[0]?.heading,

@@ -1,51 +1,17 @@
 const typeDefs = `#graphql
-scalar Timestamp
 
 type Query {
   personOrganisations: PersonOrganisations
-}
-
-type Query {
   person: Person
-}
-
-type Query {
   organisation(organisationId: Int!): Organisation
-}
-
-type Query {
   permissions(organisationId: Int!, personId: Int!): Permissions
-}
-
-type Query {
   notification(id: String!): Notification
-}
-
-type Query {
   notificationsBySbi(sbi: String!): NotificationsBySbi
-}
-
-type Query {
   applicationsBySbi(sbi: String!): ApplicationsBySbi
-}
-
-type Query {
   payments(sbi: String!): Payments
-}
-
-type Query {
   preferences(sbi: String!): Preferences
-}
-
-type Query {
   customerQuery(id: String!): CustomerQuery
-}
-
-type Query {
-  customerQueriesBySbi(sbi: String!): CustomerQueriesBySbi
-}
-
-type Query {
+  customerQueriesByTicketId(ticketId: String!): CustomerQueriesByTicketId
   allCustomerQueries: AllCustomerQueries
 }
 
@@ -150,21 +116,22 @@ type Preference {
 
 type CustomerQuery {
   id: String
+  ticketId: String
   _ts: String
   internalUser: Boolean
   heading: String
   body: String
 }
 
-type CustomerQueriesBySbi {
+type CustomerQueriesByTicketId {
   ticketId: String!
   crn: String
-  sbi: String!
+  sbi: String
   customerQueries: [CustomerQuery]
 }
 
-type AllCustomerQueries {
-  customerQueriesBySbi: [CustomerQueriesBySbi]
+type AllCustomerQueryTickets {
+  customerQueriesByTicketId: [CustomerQueriesByTicketId]
 }
 `
 
