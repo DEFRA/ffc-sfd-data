@@ -17,10 +17,9 @@ const createCustomerQueryTicket = async (_root, args, context) => {
     .items.create(item)
 
   return {
-    code: response.statusCode,
-    success: response.statusCode >= 200 && response.statusCode < 300,
-    message: response.statusCode >= 200 && response.statusCode < 300 ? 'Query ticket created successfully' : response.messages[0].message,
-    customerQueryTicket: response.resource
+    ticketId: response.resource.ticketId,
+    crn: response.resource.crn,
+    sbi: response.resource.sbi
   }
 }
 
