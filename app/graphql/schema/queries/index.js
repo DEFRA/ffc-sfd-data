@@ -9,7 +9,7 @@ const { person } = require('./person')
 const { preferences } = require('./preferences')
 const { customerQuery } = require('./customer-query')
 const { customerQueriesByTicketId } = require('./customer-queries-by-ticket-id')
-const { allCustomerQueries } = require('./all-customer-queries')
+const { allCustomerQueryTickets } = require('./all-customer-query-tickets')
 
 module.exports = {
   applicationsBySbi,
@@ -23,5 +23,5 @@ module.exports = {
   preferences,
   customerQuery,
   customerQueriesByTicketId,
-  allCustomerQueries
+  allCustomerQueryTickets
 }

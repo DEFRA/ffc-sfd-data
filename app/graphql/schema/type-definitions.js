@@ -12,7 +12,17 @@ type Query {
   preferences(sbi: String!): Preferences
   customerQuery(id: String!): CustomerQuery
   customerQueriesByTicketId(ticketId: String!): CustomerQueriesByTicketId
-  allCustomerQueries: AllCustomerQueries
+  allCustomerQueryTickets: AllCustomerQueryTickets
+}
+
+type Mutation {
+  createCustomerQuery(
+    id: String!
+    ticketId: String
+    internalUser: Boolean
+    heading: String
+    body: String
+  ): CustomerQuery
 }
 
 type Permissions {

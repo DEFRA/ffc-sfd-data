@@ -1,11 +1,12 @@
 const cosmos = require('../../../cosmos')
 const { cosmosConfig } = require('../../../config')
+const { convertCosmosTimestamp } = require('../../../utils')
 
 const customerQueriesByTicketId = async (_root, args, context) => {
   const { queriesDatabase } = await cosmos()
 
   const querySpec = {
-    query: 'SELECT * FROM customerQueries cq WHERE cq.ticketId = @ticketId',
+    query: 'SELECT * FROM customerQueries cq WHERE cq.ticketId = @ticketId ORDER BY cq.id DESC',
     parameters: [{ name: '@ticketId', value: `${args.ticketId}` }]
   }
 
@@ -14,6 +15,9 @@ const customerQueriesByTicketId = async (_root, args, context) => {
     .items.query(querySpec)
     .fetchAll()
 
+  const resource = response.resources[0]
+  const ukTimestamp = resource ? convertCosmosTimestamp(resource._ts) : null
+
   return {
     ticketId: args.ticketId,
     crn: response.resources[0]?.crn,
@@ -21,7 +25,7 @@ const customerQueriesByTicketId = async (_root, args, context) => {
     customerQueries: response.resources.map((x) => ({
       id: x.id,
       ticketId: x.ticketId,
-      _ts: x._ts,
+      _ts: ukTimestamp,
       internalUser: x.internalUser,
       heading: x.heading,
       body: x.body
