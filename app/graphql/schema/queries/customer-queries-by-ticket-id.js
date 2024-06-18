@@ -6,7 +6,7 @@ const customerQueriesByTicketId = async (_root, args, context) => {
   const { queriesDatabase } = await cosmos()
 
   const querySpec = {
-    query: 'SELECT * FROM customerQueries cq WHERE cq.ticketId = @ticketId ORDER BY cq.id DESC',
+    query: 'SELECT * FROM customerQueries cq WHERE cq.ticketId = @ticketId ORDER BY cq._ts DESC',
     parameters: [{ name: '@ticketId', value: `${args.ticketId}` }]
   }
 
@@ -15,17 +15,17 @@ const customerQueriesByTicketId = async (_root, args, context) => {
     .items.query(querySpec)
     .fetchAll()
 
-  const resource = response.resources[0]
-  const ukTimestamp = resource ? convertCosmosTimestamp(resource._ts) : null
+  const crn = response.resources.length > 0 ? response.resources[0]?.crn : null
+  const sbi = response.resources.length > 0 ? response.resources[0]?.sbi : null
 
   return {
     ticketId: args.ticketId,
-    crn: response.resources[0]?.crn,
-    sbi: response.resources[0]?.sbi,
+    crn,
+    sbi,
     customerQueries: response.resources.map((x) => ({
       id: x.id,
       ticketId: x.ticketId,
-      _ts: ukTimestamp,
+      _ts: convertCosmosTimestamp(x._ts),
       internalUser: x.internalUser,
       heading: x.heading,
       body: x.body

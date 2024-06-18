@@ -17,12 +17,18 @@ type Query {
 
 type Mutation {
   createCustomerQuery(
-    id: String!
-    ticketId: String
+    id: String
+    ticketId: String!
     internalUser: Boolean
     heading: String
     body: String
   ): CustomerQuery
+
+  createCustomerQueryTicket(
+    ticketId: String
+    crn: String # make this non-nullable
+    sbi: String # same as above
+  ): CustomerQueriesByTicketId
 }
 
 type Permissions {
@@ -134,7 +140,7 @@ type CustomerQuery {
 }
 
 type CustomerQueriesByTicketId {
-  ticketId: String!
+  ticketId: String
   crn: String
   sbi: String
   customerQueries: [CustomerQuery]

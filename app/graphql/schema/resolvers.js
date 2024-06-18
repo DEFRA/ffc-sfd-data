@@ -14,7 +14,8 @@ const {
 } = require('./queries')
 
 const {
-  createCustomerQuery
+  createCustomerQuery,
+  createCustomerQueryTicket
 } = require('./mutations')
 
 const resolvers = {
@@ -33,7 +34,8 @@ const resolvers = {
     allCustomerQueryTickets
   },
   Mutation: {
-    createCustomerQuery
+    createCustomerQuery,
+    createCustomerQueryTicket
   }
 }
 
