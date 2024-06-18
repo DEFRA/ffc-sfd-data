@@ -1,5 +1,6 @@
 const cosmos = require('../../../cosmos')
 const { cosmosConfig } = require('../../../config')
+const { convertCosmosTimestamp } = require('../../../utils')
 
 const createCustomerQuery = async (_root, args, context) => {
   const { queriesDatabase } = await cosmos()
@@ -16,10 +17,12 @@ const createCustomerQuery = async (_root, args, context) => {
     .items.create(item)
 
   return {
-    code: response.statusCode,
-    success: response.statusCode >= 200 && response.statusCode < 300,
-    message: response.statusCode >= 200 && response.statusCode < 300 ? 'Query created successfully' : response.messages[0].message,
-    customerQuery: response.resource
+    id: response.resource.id,
+    ticketId: response.resource.ticketId,
+    _ts: convertCosmosTimestamp(response.resource._ts),
+    internalUser: response.resource.internalUser,
+    heading: response.resource.heading,
+    body: response.resource.body
   }
 }
 

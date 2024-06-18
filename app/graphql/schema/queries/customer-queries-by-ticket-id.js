@@ -15,13 +15,10 @@ const customerQueriesByTicketId = async (_root, args, context) => {
     .items.query(querySpec)
     .fetchAll()
 
-  const crn = response.resources.length > 0 ? response.resources[0]?.crn : null
-  const sbi = response.resources.length > 0 ? response.resources[0]?.sbi : null
-
   return {
     ticketId: args.ticketId,
-    crn,
-    sbi,
+    crn: response.resources[0]?.crn,
+    sbi: response.resources[0]?.sbi,
     customerQueries: response.resources.map((x) => ({
       id: x.id,
       ticketId: x.ticketId,
