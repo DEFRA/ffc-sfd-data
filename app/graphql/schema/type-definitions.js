@@ -10,25 +10,25 @@ type Query {
   applicationsBySbi(sbi: String!): ApplicationsBySbi
   payments(sbi: String!): Payments
   preferences(sbi: String!): Preferences
-  customerQuery(id: String!): CustomerQuery
+  customerQueryResponse(id: String!): CustomerQueryResponse
   customerQueriesByTicketId(ticketId: String!): CustomerQueriesByTicketId
   allCustomerQueryTickets: AllCustomerQueryTickets
 }
 
 type Mutation {
-  createCustomerQuery(
-    id: String
-    ticketId: String!
-    internalUser: Boolean
+  createCustomerQueryTicket(
+    crn: String 
+    sbi: String 
     heading: String
     body: String
-  ): CustomerQuery
-
-  createCustomerQueryTicket(
-    ticketId: String
-    crn: String # make this non-nullable
-    sbi: String # same as above
   ): CustomerQueriesByTicketId
+
+  createCustomerQueryResponse(
+    ticketId: String!
+    internalUser: Boolean
+    responseHeading: String
+    responseBody: String
+  ): CustomerQueryResponse
 }
 
 type Permissions {
@@ -130,20 +130,23 @@ type Preference {
   content: String
 }
 
-type CustomerQuery {
+type CustomerQueryResponse {
   id: String
   ticketId: String
   _ts: String
   internalUser: Boolean
-  heading: String
-  body: String
+  responseHeading: String
+  responseBody: String
 }
 
 type CustomerQueriesByTicketId {
   ticketId: String
+  _ts: String
   crn: String
   sbi: String
-  customerQueries: [CustomerQuery]
+  heading: String
+  body: String
+  customerQueryResponses: [CustomerQueryResponse]
 }
 
 type AllCustomerQueryTickets {

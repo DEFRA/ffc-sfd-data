@@ -2,11 +2,11 @@ const cosmos = require('../../../cosmos')
 const { cosmosConfig } = require('../../../config')
 const { convertCosmosTimestamp } = require('../../../utils')
 
-const customerQuery = async (_root, args, context) => {
+const customerQueryResponse = async (_root, args, context) => {
   const { queriesDatabase } = await cosmos()
 
   const querySpec = {
-    query: 'SELECT * FROM customerQuery cq WHERE cq.id = @id',
+    query: 'SELECT * FROM customerQueryResponse cq WHERE cq.id = @id',
     parameters: [{ name: '@id', value: `${args.id}` }]
   }
 
@@ -23,11 +23,11 @@ const customerQuery = async (_root, args, context) => {
     ticketId: response.resources[0]?.ticketId,
     _ts: ukTimestamp,
     internalUser: response.resources[0]?.internalUser,
-    heading: response.resources[0]?.heading,
-    body: response.resources[0]?.body
+    responseHeading: response.resources[0]?.responseHeading,
+    responseBody: response.resources[0]?.responseBody
   }
 }
 
 module.exports = {
-  customerQuery
+  customerQueryResponse
 }

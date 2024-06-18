@@ -1,5 +1,6 @@
 const cosmos = require('../../../cosmos')
 const { cosmosConfig } = require('../../../config')
+const { convertCosmosTimestamp } = require('../../../utils')
 const { v4: uuidv4 } = require('uuid')
 
 const createCustomerQueryTicket = async (_root, args, context) => {
@@ -9,7 +10,9 @@ const createCustomerQueryTicket = async (_root, args, context) => {
   const item = {
     ticketId: newTicketId,
     crn: args.crn,
-    sbi: args.sbi
+    sbi: args.sbi,
+    heading: args.heading,
+    body: args.body
   }
 
   const response = await queriesDatabase
@@ -18,8 +21,11 @@ const createCustomerQueryTicket = async (_root, args, context) => {
 
   return {
     ticketId: response.resource.ticketId,
+    _ts: convertCosmosTimestamp(response.resource._ts),
     crn: response.resource.crn,
-    sbi: response.resource.sbi
+    sbi: response.resource.sbi,
+    heading: response.resource.heading,
+    body: response.resource.body
   }
 }
 

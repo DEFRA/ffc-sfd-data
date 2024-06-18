@@ -7,7 +7,7 @@ const { permissions } = require('./permissions')
 const { personOrganisations } = require('./person-organisations')
 const { person } = require('./person')
 const { preferences } = require('./preferences')
-const { customerQuery } = require('./customer-query')
+const { customerQueryResponse } = require('./customer-query-response')
 const { customerQueriesByTicketId } = require('./customer-queries-by-ticket-id')
 const { allCustomerQueryTickets } = require('./all-customer-query-tickets')
 
@@ -21,7 +21,7 @@ module.exports = {
   personOrganisations,
   person,
   preferences,
-  customerQuery,
+  customerQueryResponse,
   customerQueriesByTicketId,
   allCustomerQueryTickets
 }

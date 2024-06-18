@@ -8,13 +8,13 @@ const {
   person,
   payments,
   preferences,
-  customerQuery,
+  customerQueryResponse,
   customerQueriesByTicketId,
   allCustomerQueryTickets
 } = require('./queries')
 
 const {
-  createCustomerQuery,
+  createCustomerQueryResponse,
   createCustomerQueryTicket
 } = require('./mutations')
 
@@ -29,12 +29,12 @@ const resolvers = {
     personOrganisations,
     person,
     preferences,
-    customerQuery,
+    customerQueryResponse,
     customerQueriesByTicketId,
     allCustomerQueryTickets
   },
   Mutation: {
-    createCustomerQuery,
+    createCustomerQueryResponse,
     createCustomerQueryTicket
   }
 }
