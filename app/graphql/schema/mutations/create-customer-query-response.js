@@ -19,7 +19,7 @@ const createCustomerQueryResponse = async (_root, args, context) => {
   return {
     code: response.statusCode,
     success: response.statusCode >= 200 && response.statusCode < 300,
-    message: response.statusCode >= 200 && response.statusCode < 300 ? 'Query response created successfully' : response.messages[0].message,
+    message: response.statusCode >= 200 && response.statusCode < 300 ? 'Customer query response created successfully' : response.messages[0].message,
     ticketId: response.resource.ticketId,
     id: response.resource.id,
     _ts: convertCosmosTimestamp(response.resource._ts),

@@ -131,6 +131,9 @@ type Preference {
 }
 
 type CustomerQueryResponse {
+  code: Int
+  success: String
+  message: String
   id: String
   ticketId: String
   _ts: String
@@ -140,6 +143,9 @@ type CustomerQueryResponse {
 }
 
 type CustomerQueriesByTicketId {
+  code: Int
+  success: String
+  message: String
   ticketId: String
   _ts: String
   internalUser: Boolean
