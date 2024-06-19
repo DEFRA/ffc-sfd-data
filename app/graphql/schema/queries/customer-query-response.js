@@ -23,8 +23,8 @@ const customerQueryResponse = async (_root, args, context) => {
     ticketId: response.resources[0]?.ticketId,
     _ts: ukTimestamp,
     internalUser: response.resources[0]?.internalUser,
-    responseHeading: response.resources[0]?.responseHeading,
-    responseBody: response.resources[0]?.responseBody
+    heading: response.resources[0]?.heading,
+    body: response.resources[0]?.body
   }
 }
 
