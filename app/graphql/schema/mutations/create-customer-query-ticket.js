@@ -23,7 +23,7 @@ const createCustomerQueryTicket = async (_root, args, context) => {
   return {
     code: response.statusCode,
     success: response.statusCode >= 200 && response.statusCode < 300,
-    message: response.statusCode >= 200 && response.statusCode < 300 ? 'New customer query ticket created successfully' : response.messages[0].message,
+    message: response.statusCode >= 200 && response.statusCode < 300 ? 'Customer query ticket created successfully' : response.messages[0].message,
     ticketId: response.resource.ticketId,
     _ts: convertCosmosTimestamp(response.resource._ts),
     internalUser: response.resource.internalUser,
