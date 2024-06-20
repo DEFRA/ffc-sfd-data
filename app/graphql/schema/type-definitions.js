@@ -12,6 +12,7 @@ type Query {
   preferences(sbi: String!): Preferences
   customerQueryResponse(id: String!): CustomerQueryResponse
   customerQueriesByTicketId(ticketId: String!): CustomerQueriesByTicketId
+  customerQueryTicketsBySbi(sbi: String!): CustomerQueryTicketsBySbi
   allCustomerQueryTickets: AllCustomerQueryTickets
 }
 
@@ -159,6 +160,10 @@ type CustomerQueriesByTicketId {
   heading: String
   body: String
   customerQueryResponses: [CustomerQueryResponse]
+}
+
+type CustomerQueryTicketsBySbi {
+  customerQueriesByTicketId: [CustomerQueriesByTicketId]
 }
 
 type AllCustomerQueryTickets {

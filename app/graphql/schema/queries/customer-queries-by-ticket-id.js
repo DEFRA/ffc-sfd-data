@@ -17,7 +17,7 @@ const customerQueriesByTicketId = async (_root, args, context) => {
       .fetchAll()
 
     if (!args.ticketId) {
-      throw new Error('ticketId is must be provided.')
+      throw new Error('ticketId is must be provided')
     }
 
     const originalQuerySpec = {
@@ -34,7 +34,7 @@ const customerQueriesByTicketId = async (_root, args, context) => {
       return {
         code: 404,
         success: false,
-        message: `No customer query data found for ticketId ${args.ticketId}.`
+        message: `No customer query data found for ticketId ${args.ticketId}`
       }
     }
 
@@ -43,7 +43,7 @@ const customerQueriesByTicketId = async (_root, args, context) => {
     return {
       code: 200,
       success: true,
-      message: 'Query to Cosmos DB has been successful.',
+      message: 'Query to Cosmos DB has been successful',
       ticketId: args.ticketId,
       _ts: convertCosmosTimestamp(originalQuery?._ts),
       internalUser: originalQuery?.internalUser,
@@ -56,7 +56,7 @@ const customerQueriesByTicketId = async (_root, args, context) => {
       customerQueryResponses: response.resources.map((x) => ({
         code: 200,
         success: true,
-        message: 'Query to Cosmos DB has been successful.',
+        message: 'Query to Cosmos DB has been successful',
         id: x.id,
         ticketId: x.ticketId,
         _ts: convertCosmosTimestamp(x._ts),

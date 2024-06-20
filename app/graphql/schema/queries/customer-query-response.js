@@ -17,14 +17,14 @@ const customerQueryResponse = async (_root, args, context) => {
       .fetchAll()
 
     if (!args.id) {
-      throw new Error('id is must be provided.')
+      throw new Error('id is must be provided')
     }
 
     if (!response.resources.length) {
       return {
         code: 404,
         success: false,
-        message: `No customer query response data found for id ${args.id}.`
+        message: `No customer query response data found for id ${args.id}`
       }
     }
 
@@ -34,7 +34,7 @@ const customerQueryResponse = async (_root, args, context) => {
     return {
       code: 200,
       success: true,
-      message: 'Query to Cosmos DB has been successful.',
+      message: 'Query to Cosmos DB has been successful',
       ticketId: response.resources[0]?.ticketId,
       id: response.resources[0]?.id,
       _ts: ukTimestamp,

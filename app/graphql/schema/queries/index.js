@@ -9,6 +9,7 @@ const { person } = require('./person')
 const { preferences } = require('./preferences')
 const { customerQueryResponse } = require('./customer-query-response')
 const { customerQueriesByTicketId } = require('./customer-queries-by-ticket-id')
+const { customerQueryTicketsBySbi } = require('./customer-queries-by-sbi')
 const { allCustomerQueryTickets } = require('./all-customer-query-tickets')
 
 module.exports = {
@@ -23,5 +24,6 @@ module.exports = {
   preferences,
   customerQueryResponse,
   customerQueriesByTicketId,
+  customerQueryTicketsBySbi,
   allCustomerQueryTickets
 }

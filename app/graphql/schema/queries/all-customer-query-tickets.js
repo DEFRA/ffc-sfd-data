@@ -26,7 +26,7 @@ const allCustomerQueryTickets = async (_root, args, context) => {
       acc[x.ticketId].customerQueryResponses.push({
         code: 200,
         success: true,
-        message: 'Query to Cosmos DB has been successful.',
+        message: 'Query to Cosmos DB has been successful',
         id: x.id,
         ticketId: x.ticketId,
         _ts: convertCosmosTimestamp(x._ts),
@@ -55,7 +55,7 @@ const allCustomerQueryTickets = async (_root, args, context) => {
         ...groupedResponses[ticketId],
         code: 200,
         success: true,
-        message: 'Query to Cosmos DB has been successful.',
+        message: 'Query to Cosmos DB has been successful',
         _ts: convertCosmosTimestamp(originalQuery?._ts),
         internalUser: originalQuery?.internalUser,
         name: originalQuery?.name,
