@@ -134,7 +134,7 @@ type Preference {
 
 type CustomerQueryResponse {
   code: Int
-  success: String
+  success: Boolean
   message: String
   id: String
   ticketId: String
@@ -147,7 +147,7 @@ type CustomerQueryResponse {
 
 type CustomerQueriesByTicketId {
   code: Int
-  success: String
+  success: Boolean
   message: String
   ticketId: String
   _ts: String
