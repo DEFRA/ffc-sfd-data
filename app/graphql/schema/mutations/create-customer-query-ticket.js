@@ -10,6 +10,7 @@ const createCustomerQueryTicket = async (_root, args, context) => {
   const item = {
     ticketId: newTicketId,
     internalUser: false,
+    name: args.name,
     crn: args.crn,
     sbi: args.sbi,
     heading: args.heading,
@@ -27,6 +28,7 @@ const createCustomerQueryTicket = async (_root, args, context) => {
     ticketId: response.resource.ticketId,
     _ts: convertCosmosTimestamp(response.resource._ts),
     internalUser: response.resource.internalUser,
+    name: response.resource.name,
     crn: response.resource.crn,
     sbi: response.resource.sbi,
     id: response.resource.id,

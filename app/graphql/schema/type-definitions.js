@@ -17,6 +17,7 @@ type Query {
 
 type Mutation {
   createCustomerQueryTicket(
+    name: String
     crn: String 
     sbi: String
     heading: String
@@ -26,6 +27,7 @@ type Mutation {
   createCustomerQueryResponse(
     ticketId: String!
     internalUser: Boolean
+    name: String
     heading: String
     body: String
   ): CustomerQueryResponse
@@ -138,6 +140,7 @@ type CustomerQueryResponse {
   ticketId: String
   _ts: String
   internalUser: Boolean
+  name: String
   heading: String
   body: String
 }
@@ -149,6 +152,7 @@ type CustomerQueriesByTicketId {
   ticketId: String
   _ts: String
   internalUser: Boolean
+  name: String
   crn: String
   sbi: String
   id: String

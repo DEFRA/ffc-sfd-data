@@ -21,17 +21,25 @@ const customerQueryResponse = async (_root, args, context) => {
     }
 
     if (!response.resources.length) {
-      throw new Error(`No customer query response data found for id ${args.id}`)
+      return {
+        code: 404,
+        success: false,
+        message: `No customer query response data found for id ${args.id}.`
+      }
     }
 
     const resource = response.resources[0]
     const ukTimestamp = resource ? convertCosmosTimestamp(resource._ts) : null
 
     return {
-      id: response.resources[0]?.id,
+      code: 200,
+      success: true,
+      message: 'Query to Cosmos DB has been successful.',
       ticketId: response.resources[0]?.ticketId,
+      id: response.resources[0]?.id,
       _ts: ukTimestamp,
       internalUser: response.resources[0]?.internalUser,
+      name: response.resources[0]?.name,
       heading: response.resources[0]?.heading,
       body: response.resources[0]?.body
     }

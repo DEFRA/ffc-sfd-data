@@ -31,25 +31,37 @@ const customerQueriesByTicketId = async (_root, args, context) => {
       .fetchAll()
 
     if (!originalQueryResponse.resources.length) {
-      throw new Error(`No customer query data found for ticketId ${args.ticketId}`)
+      return {
+        code: 404,
+        success: false,
+        message: `No customer query data found for ticketId ${args.ticketId}.`
+      }
     }
 
     const originalQuery = originalQueryResponse.resources[0]
 
     return {
+      code: 200,
+      success: true,
+      message: 'Query to Cosmos DB has been successful.',
       ticketId: args.ticketId,
       _ts: convertCosmosTimestamp(originalQuery?._ts),
       internalUser: originalQuery?.internalUser,
+      name: originalQuery?.name,
       crn: originalQuery?.crn,
       sbi: originalQuery?.sbi,
       id: originalQuery?.id,
       heading: originalQuery?.heading,
       body: originalQuery?.body,
       customerQueryResponses: response.resources.map((x) => ({
+        code: 200,
+        success: true,
+        message: 'Query to Cosmos DB has been successful.',
         id: x.id,
         ticketId: x.ticketId,
         _ts: convertCosmosTimestamp(x._ts),
         internalUser: x.internalUser,
+        name: x.name,
         heading: x.heading,
         body: x.body
       }))
