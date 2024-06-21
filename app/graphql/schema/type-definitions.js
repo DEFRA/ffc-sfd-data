@@ -10,16 +10,16 @@ type Query {
   applicationsBySbi(sbi: String!): ApplicationsBySbi
   payments(sbi: String!): Payments
   preferences(sbi: String!): Preferences
-  customerQueryResponse(id: String!): CustomerQueryResponse
-  customerQueriesByTicketId(ticketId: String!): CustomerQueriesByTicketId
-  customerQueryTicketsBySbi(sbi: String!): CustomerQueryTicketsBySbi
   allCustomerQueryTickets: AllCustomerQueryTickets
+  customerQueryTicketsBySbi(sbi: String!): CustomerQueryTicketsBySbi
+  customerQueriesByTicketId(ticketId: String!): CustomerQueriesByTicketId
+  customerQueryResponse(id: String!): CustomerQueryResponse
 }
 
 type Mutation {
   createCustomerQueryTicket(
     name: String
-    crn: String 
+    crn: String
     sbi: String
     heading: String
     body: String
