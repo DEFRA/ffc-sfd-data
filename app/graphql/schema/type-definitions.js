@@ -152,13 +152,8 @@ type CustomerQueriesByTicketId {
   message: String
   ticketId: String
   _ts: String
-  # internalUser: Boolean
-  # name: String
   crn: String
   sbi: String
-  # id: String
-  # heading: String
-  # body: String
   customerQueryResponses: [CustomerQueryResponse]
 }
 
