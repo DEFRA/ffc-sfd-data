@@ -162,8 +162,23 @@ type CustomerQueriesByTicketId {
   customerQueryResponses: [CustomerQueryResponse]
 }
 
+type OriginalCustomerQueryTicket {
+  code: Int
+  success: Boolean
+  message: String
+  ticketId: String
+  _ts: String
+  internalUser: Boolean
+  name: String
+  crn: String
+  sbi: String
+  id: String
+  heading: String
+  body: String
+}
+
 type CustomerQueryTicketsBySbi {
-  customerQueriesByTicketId: [CustomerQueriesByTicketId]
+  originalCustomerQueryTickets: [OriginalCustomerQueryTicket]
 }
 
 type AllCustomerQueryTickets {

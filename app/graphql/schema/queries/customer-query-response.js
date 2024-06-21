@@ -17,7 +17,7 @@ const customerQueryResponse = async (_root, args, context) => {
       .fetchAll()
 
     if (!args.id) {
-      throw new Error('id is must be provided')
+      throw new Error('id must be provided')
     }
 
     if (!response.resources.length) {
