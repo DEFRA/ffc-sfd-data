@@ -21,11 +21,7 @@ const customerQueryTicketsBySbi = async (_root, args, context) => {
     }
 
     if (!response.resources.length) {
-      return {
-        code: 404,
-        success: false,
-        message: `No customer query data found for SBI ${args.sbi}`
-      }
+      throw new Error(`No customer query data found for SBI ${args.sbi}`)
     }
 
     return {

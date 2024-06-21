@@ -31,11 +31,7 @@ const customerQueriesByTicketId = async (_root, args, context) => {
       .fetchAll()
 
     if (!originalQueryResponse.resources.length) {
-      return {
-        code: 404,
-        success: false,
-        message: `No customer query data found for ticketId ${args.ticketId}`
-      }
+      throw new Error(`No customer query data found for ticketId ${args.ticketId}`)
     }
 
     const originalQuery = originalQueryResponse.resources[0]

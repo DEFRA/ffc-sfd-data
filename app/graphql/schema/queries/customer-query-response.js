@@ -21,11 +21,7 @@ const customerQueryResponse = async (_root, args, context) => {
     }
 
     if (!response.resources.length) {
-      return {
-        code: 404,
-        success: false,
-        message: `No customer query response data found for id ${args.id}`
-      }
+      throw new Error(`No customer query data found for id ${args.id}`)
     }
 
     const resource = response.resources[0]
