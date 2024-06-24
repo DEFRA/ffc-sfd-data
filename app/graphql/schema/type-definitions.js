@@ -12,7 +12,7 @@ type Query {
   preferences(sbi: String!): Preferences
   allCustomerQueryTickets: AllCustomerQueryTickets
   customerQueryTicketsBySbi(sbi: String!): CustomerQueryTicketsBySbi
-  customerQueriesByTicketId(ticketId: String!): CustomerQueriesByTicketId
+  customerQueryByTicketId(ticketId: String!): CustomerQueryByTicketId
   customerQueryResponse(id: String!): CustomerQueryResponse
 }
 
@@ -23,7 +23,7 @@ type Mutation {
     sbi: String
     heading: String
     body: String
-  ): CustomerQueriesByTicketId
+  ): CustomerQueryByTicketId
 
   updateCustomerQueryTicket(
     ticketId: String!
@@ -31,7 +31,7 @@ type Mutation {
     name: String
     heading: String
     body: String
-  ): CustomerQueriesByTicketId
+  ): CustomerQueryByTicketId
 }
 
 type Permissions {
@@ -146,7 +146,7 @@ type CustomerQueryResponse {
   body: String
 }
 
-type CustomerQueriesByTicketId {
+type CustomerQueryByTicketId {
   code: Int
   success: Boolean
   message: String

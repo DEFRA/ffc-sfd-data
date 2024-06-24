@@ -1,6 +1,6 @@
 const cosmos = require('../../../cosmos')
 const { cosmosConfig } = require('../../../config')
-const { customerQueriesByTicketId } = require('../queries')
+const { customerQueryByTicketId } = require('../queries')
 
 const updateCustomerQueryTicket = async (_root, args, context) => {
   const { queriesDatabase } = await cosmos()
@@ -19,7 +19,7 @@ const updateCustomerQueryTicket = async (_root, args, context) => {
 
   const success = response.statusCode >= 200 && response.statusCode < 300
   const message = success ? 'Customer query ticket updated successfully with new response' : response.messages[0].message
-  const customerQueryResponse = await customerQueriesByTicketId(null, { ticketId: args.ticketId }, context)
+  const customerQueryResponse = await customerQueryByTicketId(null, { ticketId: args.ticketId }, context)
 
   return {
     code: response.statusCode,

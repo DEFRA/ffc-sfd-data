@@ -2,7 +2,7 @@ const cosmos = require('../../../cosmos')
 const { cosmosConfig } = require('../../../config')
 const { convertCosmosTimestamp } = require('../../../utils')
 
-const customerQueriesByTicketId = async (_root, args, context) => {
+const customerQueryByTicketId = async (_root, args, context) => {
   try {
     const { queriesDatabase } = await cosmos()
 
@@ -63,5 +63,5 @@ const customerQueriesByTicketId = async (_root, args, context) => {
 }
 
 module.exports = {
-  customerQueriesByTicketId
+  customerQueryByTicketId
 }
