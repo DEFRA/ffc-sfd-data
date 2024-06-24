@@ -1,6 +1,5 @@
 const cosmos = require('../../../cosmos')
 const { cosmosConfig } = require('../../../config')
-// const { convertCosmosTimestamp } = require('../../../utils')
 const { customerQueriesByTicketId } = require('../queries')
 
 const updateCustomerQueryTicket = async (_root, args, context) => {
