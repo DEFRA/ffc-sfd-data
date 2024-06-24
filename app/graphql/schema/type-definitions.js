@@ -177,7 +177,7 @@ type CustomerQueryTicketsBySbi {
 }
 
 type AllCustomerQueryTickets {
-  customerQueriesByTicketId: [CustomerQueriesByTicketId]
+  originalCustomerQueryTickets: [OriginalCustomerQueryTicket]
 }
 `
 
