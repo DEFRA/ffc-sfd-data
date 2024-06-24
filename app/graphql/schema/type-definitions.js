@@ -25,13 +25,13 @@ type Mutation {
     body: String
   ): CustomerQueriesByTicketId
 
-  createCustomerQueryResponse(
+  updateCustomerQueryTicket(
     ticketId: String!
     internalUser: Boolean
     name: String
     heading: String
     body: String
-  ): CustomerQueryResponse
+  ): CustomerQueriesByTicketId
 }
 
 type Permissions {
