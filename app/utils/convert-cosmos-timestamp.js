@@ -12,8 +12,7 @@ const convertCosmosTimestamp = (unixTimestamp) => {
     hour12: false
   }
 
-  const formatter = new Intl.DateTimeFormat('en-GB', options)
-  return formatter.format(date)
+  return date.toLocaleDateString('en-GB', options)
 }
 
 module.exports = {
