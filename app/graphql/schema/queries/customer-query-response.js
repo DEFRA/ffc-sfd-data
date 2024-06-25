@@ -13,8 +13,7 @@ const customerQueryResponse = async (_root, args, context) => {
 
     const response = await queriesDatabase
       .container(cosmosConfig.queriesContainer)
-      .items.query(querySpec)
-      .fetchAll()
+      .items.query(querySpec).fetchAll()
 
     if (!args.id) {
       throw new Error('id must be provided')
@@ -25,21 +24,16 @@ const customerQueryResponse = async (_root, args, context) => {
     }
 
     const resource = response.resources[0]
-    const ukTimestamp = convertCosmosTimestamp(resource._ts)
+    const timestamp = convertCosmosTimestamp(resource._ts)
     const success = response.statusCode >= 200 && response.statusCode < 300
-    const message = success ? 'Query to Cosmos DB has been successful' : response.messages[0].message
+    const message = success ? 'Query to Cosmos DB has been successful' : 'Unable to retrieve data from Cosmos DB'
 
     return {
-      code: response.statusCode,
+      code: resource.statusCode,
       success,
       message,
-      ticketId: response.resources[0]?.ticketId,
-      id: response.resources[0]?.id,
-      timestamp: ukTimestamp,
-      internalUser: response.resources[0]?.internalUser,
-      name: response.resources[0]?.name,
-      heading: response.resources[0]?.heading,
-      body: response.resources[0]?.body
+      ...response.resources[0],
+      timestamp
     }
   } catch (error) {
     throw new Error(`Query failed: ${error.message}`)

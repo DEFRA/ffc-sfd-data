@@ -26,7 +26,6 @@ const updateCustomerQueryTicket = async (_root, args, context) => {
     success,
     message,
     ticketId: args.ticketId,
-    originalQuery: customerQueryResponse.originalQuery,
     timestamp: customerQueryResponse.timestamp,
     crn: customerQueryResponse.crn,
     sbi: customerQueryResponse.sbi,
