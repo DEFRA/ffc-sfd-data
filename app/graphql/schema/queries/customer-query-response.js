@@ -25,12 +25,14 @@ const customerQueryResponse = async (_root, args, context) => {
     }
 
     const resource = response.resources[0]
-    const ukTimestamp = resource ? convertCosmosTimestamp(resource._ts) : null
+    const ukTimestamp = convertCosmosTimestamp(resource._ts)
+    const success = response.statusCode >= 200 && response.statusCode < 300
+    const message = success ? 'Query to Cosmos DB has been successful' : response.messages[0].message
 
     return {
-      code: 200,
-      success: true,
-      message: 'Query to Cosmos DB has been successful',
+      code: response.statusCode,
+      success,
+      message,
       ticketId: response.resources[0]?.ticketId,
       id: response.resources[0]?.id,
       timestamp: ukTimestamp,
