@@ -139,7 +139,7 @@ type CustomerQueryResponse {
   message: String
   id: String
   ticketId: String
-  _ts: String
+  timestamp: String
   internalUser: Boolean
   name: String
   heading: String
@@ -151,7 +151,7 @@ type CustomerQueryByTicketId {
   success: Boolean
   message: String
   ticketId: String
-  _ts: String
+  timestamp: String
   crn: String
   sbi: String
   customerQueryResponses: [CustomerQueryResponse]
@@ -162,7 +162,7 @@ type OriginalCustomerQueryTicket {
   success: Boolean
   message: String
   ticketId: String
-  _ts: String
+  timestamp: String
   internalUser: Boolean
   name: String
   crn: String

@@ -41,7 +41,7 @@ const customerQueryByTicketId = async (_root, args, context) => {
       success: true,
       message: 'Query to Cosmos DB has been successful',
       ticketId: args.ticketId,
-      _ts: convertCosmosTimestamp(originalQuery?._ts),
+      timestamp: convertCosmosTimestamp(originalQuery?._ts),
       crn: originalQuery?.crn,
       sbi: originalQuery?.sbi,
       customerQueryResponses: response.resources.map((x) => ({
@@ -50,7 +50,7 @@ const customerQueryByTicketId = async (_root, args, context) => {
         message: 'Query to Cosmos DB has been successful',
         id: x.id,
         ticketId: x.ticketId,
-        _ts: convertCosmosTimestamp(x._ts),
+        timestamp: convertCosmosTimestamp(x._ts),
         internalUser: x.internalUser,
         name: x.name,
         heading: x.heading,

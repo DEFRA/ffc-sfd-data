@@ -29,7 +29,7 @@ const createCustomerQueryTicket = async (_root, args, context) => {
     success,
     message,
     ...response.resource,
-    _ts: convertCosmosTimestamp(response.resource._ts)
+    timestamp: convertCosmosTimestamp(response.resource._ts)
   }
 }
 

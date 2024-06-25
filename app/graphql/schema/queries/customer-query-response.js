@@ -33,7 +33,7 @@ const customerQueryResponse = async (_root, args, context) => {
       message: 'Query to Cosmos DB has been successful',
       ticketId: response.resources[0]?.ticketId,
       id: response.resources[0]?.id,
-      _ts: ukTimestamp,
+      timestamp: ukTimestamp,
       internalUser: response.resources[0]?.internalUser,
       name: response.resources[0]?.name,
       heading: response.resources[0]?.heading,
