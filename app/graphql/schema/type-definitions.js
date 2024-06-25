@@ -23,7 +23,7 @@ type Mutation {
     sbi: String
     heading: String
     body: String
-  ): CustomerQueryByTicketId
+  ): OriginalCustomerQueryTicket
 
   updateCustomerQueryTicket(
     ticketId: String!
