@@ -9,6 +9,7 @@ const createCustomerQueryTicket = async (_root, args, context) => {
 
   const item = {
     ticketId: newTicketId,
+    originalQuery: true,
     internalUser: false,
     name: args.name,
     crn: args.crn,

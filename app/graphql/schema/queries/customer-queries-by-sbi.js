@@ -29,6 +29,7 @@ const customerQueryTicketsBySbi = async (_root, args, context) => {
         code: 200,
         success: true,
         message: 'Query to Cosmos DB has been successful',
+        originalQuery: x.originalQuery,
         ticketId: x.ticketId,
         timestamp: convertCosmosTimestamp(x._ts),
         internalUser: x.internalUser,

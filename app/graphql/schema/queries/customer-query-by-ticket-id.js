@@ -40,6 +40,7 @@ const customerQueryByTicketId = async (_root, args, context) => {
       code: 200,
       success: true,
       message: 'Query to Cosmos DB has been successful',
+      originalQuery: originalQuery?.originalQuery,
       ticketId: args.ticketId,
       timestamp: convertCosmosTimestamp(originalQuery?._ts),
       crn: originalQuery?.crn,

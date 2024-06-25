@@ -161,6 +161,7 @@ type OriginalCustomerQueryTicket {
   code: Int
   success: Boolean
   message: String
+  originalQuery: Boolean
   ticketId: String
   timestamp: String
   internalUser: Boolean
