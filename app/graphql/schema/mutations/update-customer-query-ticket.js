@@ -1,7 +1,6 @@
 const cosmos = require('../../../cosmos')
 const { cosmosConfig } = require('../../../config')
 const { convertCosmosTimestamp } = require('../../../utils')
-const { generateTimestamp } = require('../../../utils')
 
 const updateCustomerQueryTicket = async (_root, args, context) => {
   const { queriesDatabase } = await cosmos()
@@ -23,7 +22,6 @@ const updateCustomerQueryTicket = async (_root, args, context) => {
   }
 
   item.responses.unshift({
-    timestamp: generateTimestamp(),
     internalUser: args.internalUser,
     name: args.name,
     heading: args.heading,
