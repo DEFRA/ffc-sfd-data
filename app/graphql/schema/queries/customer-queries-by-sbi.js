@@ -25,20 +25,16 @@ const customerQueryTicketsBySbi = async (_root, args, context) => {
     }
 
     return {
-      originalCustomerQueryTickets: response.resources.map((x) => ({
-        code: 200,
-        success: true,
-        message: 'Query to Cosmos DB has been successful',
-        originalQuery: x.originalQuery,
-        ticketId: x.ticketId,
+      customerQueryTickets: response.resources.map((x) => ({
+        id: x.id,
         timestamp: convertCosmosTimestamp(x._ts),
         internalUser: x.internalUser,
         name: x.name,
         crn: x.crn,
         sbi: x.sbi,
-        id: x.id,
         heading: x.heading,
-        body: x.body
+        body: x.body,
+        responses: x.responses
       }))
     }
   } catch (error) {

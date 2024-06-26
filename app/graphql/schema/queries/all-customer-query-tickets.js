@@ -7,7 +7,7 @@ const allCustomerQueryTickets = async (_root, args, context) => {
     const { queriesDatabase } = await cosmos()
 
     const querySpec = {
-      query: 'SELECT * FROM customerQueryResponse cq WHERE cq.originalQuery = true ORDER BY cq._ts ASC'
+      query: 'SELECT * FROM customerQueryResponse cq ORDER BY cq._ts ASC'
     }
 
     const response = await queriesDatabase
@@ -16,20 +16,16 @@ const allCustomerQueryTickets = async (_root, args, context) => {
       .fetchAll()
 
     return {
-      originalCustomerQueryTickets: response.resources.map((x) => ({
-        code: 200,
-        success: true,
-        message: 'Query to Cosmos DB has been successful',
-        originalQuery: x.originalQuery,
-        ticketId: x.ticketId,
-        timestamp: convertCosmosTimestamp(x._ts),
+      customerQueryTickets: response.resources.map((x) => ({
+        id: x.id,
         internalUser: x.internalUser,
+        timestamp: convertCosmosTimestamp(x._ts),
         name: x.name,
         crn: x.crn,
         sbi: x.sbi,
-        id: x.id,
         heading: x.heading,
-        body: x.body
+        body: x.body,
+        responses: x.responses
       }))
     }
   } catch (error) {

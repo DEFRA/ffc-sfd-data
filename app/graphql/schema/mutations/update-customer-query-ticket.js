@@ -1,12 +1,14 @@
 const cosmos = require('../../../cosmos')
 const { cosmosConfig } = require('../../../config')
+const { convertCosmosTimestamp } = require('../../../utils')
+const { generateTimestamp } = require('../../../utils')
 
 const updateCustomerQueryTicket = async (_root, args, context) => {
   const { queriesDatabase } = await cosmos()
 
   const querySpec = {
-    query: 'SELECT * FROM customerQueryResponse cq WHERE cq.ticketId = @ticketId',
-    parameters: [{ name: '@ticketId', value: `${args.ticketId}` }]
+    query: 'SELECT * FROM customerQueryResponse cq WHERE cq.id = @id',
+    parameters: [{ name: '@id', value: `${args.id}` }]
   }
 
   const response = await queriesDatabase
@@ -16,12 +18,16 @@ const updateCustomerQueryTicket = async (_root, args, context) => {
 
   const item = response.resources[0]
 
+  if (!item.responses) {
+    item.responses = []
+  }
+
   item.responses.unshift({
+    timestamp: generateTimestamp(),
     internalUser: args.internalUser,
     name: args.name,
     heading: args.heading,
-    body: args.body,
-    timestamp: new Date().toISOString()
+    body: args.body
   })
 
   const upsertResponse = await queriesDatabase
@@ -29,13 +35,15 @@ const updateCustomerQueryTicket = async (_root, args, context) => {
     .items.upsert(item)
 
   return {
-    code: upsertResponse.statusCode,
-    success: true,
-    message: '',
-    ticketId: upsertResponse.resource.ticketId,
-    timestamp: upsertResponse.resource.timestamp,
+    id: upsertResponse.resource.id,
+    originalQuery: upsertResponse.resource.originalQuery,
+    internalUser: upsertResponse.resource.internalUser,
+    timestamp: convertCosmosTimestamp(upsertResponse.resource._ts),
+    name: upsertResponse.resource.name,
     crn: upsertResponse.resource.crn,
     sbi: upsertResponse.resource.sbi,
+    heading: upsertResponse.resource.heading,
+    body: upsertResponse.resource.body,
     responses: upsertResponse.resource.responses
   }
 }

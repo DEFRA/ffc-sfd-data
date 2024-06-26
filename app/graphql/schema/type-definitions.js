@@ -12,7 +12,7 @@ type Query {
   preferences(sbi: String!): Preferences
   allCustomerQueryTickets: AllCustomerQueryTickets
   customerQueryTicketsBySbi(sbi: String!): CustomerQueryTicketsBySbi
-  customerQueryByTicketId(ticketId: String!): CustomerQueryByTicketId
+  customerQueryTicketById(id: String!): CustomerQueryTicket
 }
 
 type Mutation {
@@ -22,15 +22,15 @@ type Mutation {
     sbi: String
     heading: String
     body: String
-  ): OriginalCustomerQueryTicket
+  ): CustomerQueryTicket
 
   updateCustomerQueryTicket(
-    ticketId: String!
+    id: String!
     internalUser: Boolean
     name: String
     heading: String
     body: String
-  ): CustomerQueryByTicketId
+  ): CustomerQueryTicket
 }
 
 type Permissions {
@@ -133,48 +133,30 @@ type Preference {
 }
 
 type Responses {
-  id: String
-  ticketId: String
-  timestamp: String
   internalUser: Boolean
   name: String
   heading: String
   body: String
 }
 
-type CustomerQueryByTicketId {
-  code: Int
-  success: Boolean
-  message: String
-  ticketId: String
-  crn: String
-  sbi: String
-  responses: [Responses]
-}
-
-type OriginalCustomerQueryTicket {
-  code: Int
-  success: Boolean
-  message: String
-  originalQuery: Boolean
-  ticketId: String
-  timestamp: String
+type CustomerQueryTicket {
+  id: String
   internalUser: Boolean
+  timestamp: String
   name: String
   crn: String
   sbi: String
-  id: String
   heading: String
   body: String
   responses: [Responses]
 }
 
 type CustomerQueryTicketsBySbi {
-  originalCustomerQueryTickets: [OriginalCustomerQueryTicket]
+  customerQueryTickets: [CustomerQueryTicket]
 }
 
 type AllCustomerQueryTickets {
-  originalCustomerQueryTickets: [OriginalCustomerQueryTicket]
+  customerQueryTickets: [CustomerQueryTicket]
 }
 `
 

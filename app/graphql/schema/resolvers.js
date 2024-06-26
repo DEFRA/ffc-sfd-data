@@ -10,7 +10,7 @@ const {
   preferences,
   allCustomerQueryTickets,
   customerQueryTicketsBySbi,
-  customerQueryByTicketId
+  customerQueryTicketById
 } = require('./queries')
 
 const {
@@ -31,7 +31,7 @@ const resolvers = {
     preferences,
     allCustomerQueryTickets,
     customerQueryTicketsBySbi,
-    customerQueryByTicketId
+    customerQueryTicketById
   },
   Mutation: {
     createCustomerQueryTicket,
