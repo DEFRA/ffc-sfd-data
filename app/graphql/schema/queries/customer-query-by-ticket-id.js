@@ -20,43 +20,14 @@ const customerQueryByTicketId = async (_root, args, context) => {
       throw new Error('ticketId is must be provided')
     }
 
-    const originalQuerySpec = {
-      query: 'SELECT * FROM customerQueryResponse cq WHERE cq.ticketId = @ticketId',
-      parameters: [{ name: '@ticketId', value: `${args.ticketId}` }]
-    }
-
-    const originalQueryResponse = await queriesDatabase
-      .container(cosmosConfig.queriesContainer)
-      .items.query(originalQuerySpec)
-      .fetchAll()
-
-    if (!originalQueryResponse.resources.length) {
-      throw new Error(`No customer query data found for ticketId ${args.ticketId}`)
-    }
-
-    const originalQuery = originalQueryResponse.resources[0]
-
     return {
       code: 200,
       success: true,
       message: 'Query to Cosmos DB has been successful',
-      originalQuery: originalQuery?.originalQuery,
-      ticketId: args.ticketId,
-      timestamp: convertCosmosTimestamp(originalQuery?._ts),
-      crn: originalQuery?.crn,
-      sbi: originalQuery?.sbi,
-      customerQueryResponses: response.resources.map((x) => ({
-        code: 200,
-        success: true,
-        message: 'Query to Cosmos DB has been successful',
-        id: x.id,
-        ticketId: x.ticketId,
-        timestamp: convertCosmosTimestamp(x._ts),
-        internalUser: x.internalUser,
-        name: x.name,
-        heading: x.heading,
-        body: x.body
-      }))
+      ticketId: 'abc',
+      crn: 'abc',
+      sbi: 'abc',
+      responses: [{ name: 'abc', heading: 'abc', body: 'abc', timestamp: 'abc' }]
     }
   } catch (error) {
     throw new Error(`Query failed: ${error.message}`)

@@ -15,7 +15,8 @@ const createCustomerQueryTicket = async (_root, args, context) => {
     crn: args.crn,
     sbi: args.sbi,
     heading: args.heading,
-    body: args.body
+    body: args.body,
+    responses: []
   }
 
   const response = await queriesDatabase

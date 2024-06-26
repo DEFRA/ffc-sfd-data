@@ -151,10 +151,18 @@ type CustomerQueryByTicketId {
   success: Boolean
   message: String
   ticketId: String
-  timestamp: String
   crn: String
   sbi: String
-  customerQueryResponses: [CustomerQueryResponse]
+  responses: [Responses]
+}
+
+type Responses {
+  name: String
+  internalUser: Boolean
+  heading: String
+  body: String
+  timestamp: String
+
 }
 
 type OriginalCustomerQueryTicket {
@@ -171,6 +179,7 @@ type OriginalCustomerQueryTicket {
   id: String
   heading: String
   body: String
+  responses: [Responses]
 }
 
 type CustomerQueryTicketsBySbi {
