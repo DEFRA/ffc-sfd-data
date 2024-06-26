@@ -16,7 +16,7 @@ const updateCustomerQueryTicket = async (_root, args, context) => {
 
   const item = response.resources[0]
 
-  item.responses.push({
+  item.responses.unshift({
     internalUser: args.internalUser,
     name: args.name,
     heading: args.heading,

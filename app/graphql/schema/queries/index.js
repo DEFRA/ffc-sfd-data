@@ -10,7 +10,6 @@ const { preferences } = require('./preferences')
 const { allCustomerQueryTickets } = require('./all-customer-query-tickets')
 const { customerQueryTicketsBySbi } = require('./customer-queries-by-sbi')
 const { customerQueryByTicketId } = require('./customer-query-by-ticket-id')
-const { customerQueryResponse } = require('./customer-query-response')
 
 module.exports = {
   applicationsBySbi,
@@ -24,6 +23,5 @@ module.exports = {
   preferences,
   allCustomerQueryTickets,
   customerQueryTicketsBySbi,
-  customerQueryByTicketId,
-  customerQueryResponse
+  customerQueryByTicketId
 }
