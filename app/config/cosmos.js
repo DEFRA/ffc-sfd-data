@@ -12,8 +12,7 @@ const schema = Joi.object({
   preferencesDatabase: Joi.string().default('ffc-sfd-customer-receiver-preferences'),
   preferencesContainer: Joi.string().default('preferences-container'),
   queriesDatabase: Joi.string().default('ffc-sfd-customer-receiver-queries'),
-  queriesContainer: Joi.string().default('queries-container'),
-  responsesContainer: Joi.string().default('responses-container')
+  queriesContainer: Joi.string().default('queries-container')
 })
 
 const config = {
