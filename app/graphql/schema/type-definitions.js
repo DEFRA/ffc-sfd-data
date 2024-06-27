@@ -16,8 +16,7 @@ type Query {
 }
 
 type Mutation {
-  createCustomerQueryTicket(
-    name: String
+  createCustomerQueryTicket(name: String
     crn: String
     sbi: String
     heading: String
@@ -132,6 +131,12 @@ type Preference {
   content: String
 }
 
+type Status {
+  code: Int
+  success: Boolean
+  message: String
+}
+
 type Responses {
   internalUser: Boolean
   name: String
@@ -149,6 +154,7 @@ type CustomerQueryTicket {
   heading: String
   body: String
   responses: [Responses]
+  status: Status
 }
 
 type CustomerQueryTicketsBySbi {
@@ -158,6 +164,7 @@ type CustomerQueryTicketsBySbi {
 type AllCustomerQueryTickets {
   customerQueryTickets: [CustomerQueryTicket]
 }
+
 `
 
 module.exports = { typeDefs }

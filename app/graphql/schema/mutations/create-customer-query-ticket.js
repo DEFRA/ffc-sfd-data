@@ -1,13 +1,11 @@
 const cosmos = require('../../../cosmos')
 const { cosmosConfig } = require('../../../config')
 const { convertCosmosTimestamp } = require('../../../utils')
-const { v4: uuidv4 } = require('uuid')
 
 const createCustomerQueryTicket = async (_root, args, context) => {
   const { queriesDatabase } = await cosmos()
 
   const item = {
-    ticketId: uuidv4(),
     internalUser: false,
     name: args.name,
     crn: args.crn,
@@ -23,7 +21,12 @@ const createCustomerQueryTicket = async (_root, args, context) => {
 
   return {
     ...response.resource,
-    timestamp: convertCosmosTimestamp(response.resource._ts)
+    timestamp: convertCosmosTimestamp(response.resource._ts),
+    status: {
+      code: response.statusCode,
+      success: response.statusCode >= 200 && response.statusCode < 300,
+      message: response.statusCode >= 200 && response.statusCode < 300 ? 'Customer query ticket created successfully' : response.messages[0].message
+    }
   }
 }
 

@@ -3,46 +3,63 @@ const { cosmosConfig } = require('../../../config')
 const { convertCosmosTimestamp } = require('../../../utils')
 
 const updateCustomerQueryTicket = async (_root, args, context) => {
-  const { queriesDatabase } = await cosmos()
+  try {
+    const { queriesDatabase } = await cosmos()
 
-  const querySpec = {
-    query: 'SELECT * FROM customerQueryResponse cq WHERE cq.id = @id',
-    parameters: [{ name: '@id', value: `${args.id}` }]
-  }
+    const querySpec = {
+      query: 'SELECT * FROM customerQueryResponse cq WHERE cq.id = @id',
+      parameters: [{ name: '@id', value: `${args.id}` }]
+    }
 
-  const response = await queriesDatabase
-    .container(cosmosConfig.queriesContainer)
-    .items.query(querySpec)
-    .fetchAll()
+    const response = await queriesDatabase
+      .container(cosmosConfig.queriesContainer)
+      .items.query(querySpec)
+      .fetchAll()
 
-  const item = response.resources[0]
+    if (!args.id) {
+      throw new Error('Must provide an id (id cannot be null)')
+    }
 
-  if (!item.responses) {
-    item.responses = []
-  }
+    if (!response.resources || response.resources.length === 0) {
+      throw new Error(`No customer query data found for id: ${args.id} (ticket does not exist)`)
+    }
 
-  item.responses.unshift({
-    internalUser: args.internalUser,
-    name: args.name,
-    heading: args.heading,
-    body: args.body
-  })
+    const item = response.resources[0]
 
-  const upsertResponse = await queriesDatabase
-    .container(cosmosConfig.queriesContainer)
-    .items.upsert(item)
+    if (!item.responses) {
+      item.responses = []
+    }
 
-  return {
-    id: upsertResponse.resource.id,
-    originalQuery: upsertResponse.resource.originalQuery,
-    internalUser: upsertResponse.resource.internalUser,
-    timestamp: convertCosmosTimestamp(upsertResponse.resource._ts),
-    name: upsertResponse.resource.name,
-    crn: upsertResponse.resource.crn,
-    sbi: upsertResponse.resource.sbi,
-    heading: upsertResponse.resource.heading,
-    body: upsertResponse.resource.body,
-    responses: upsertResponse.resource.responses
+    item.responses.unshift({
+      internalUser: args.internalUser,
+      name: args.name,
+      heading: args.heading,
+      body: args.body
+    })
+
+    const upsertResponse = await queriesDatabase
+      .container(cosmosConfig.queriesContainer)
+      .items.upsert(item)
+
+    return {
+      id: upsertResponse.resource.id,
+      originalQuery: upsertResponse.resource.originalQuery,
+      internalUser: upsertResponse.resource.internalUser,
+      timestamp: convertCosmosTimestamp(item._ts),
+      name: upsertResponse.resource.name,
+      crn: upsertResponse.resource.crn,
+      sbi: upsertResponse.resource.sbi,
+      heading: upsertResponse.resource.heading,
+      body: upsertResponse.resource.body,
+      responses: upsertResponse.resource.responses,
+      status: {
+        code: upsertResponse.statusCode,
+        success: upsertResponse.statusCode >= 200 && upsertResponse.statusCode < 300,
+        message: upsertResponse.statusCode >= 200 && upsertResponse.statusCode < 300 ? 'Customer query ticket updated successfully' : upsertResponse.messages[0].message
+      }
+    }
+  } catch (error) {
+    throw new Error(`Query failed: ${error.message}`)
   }
 }
 
