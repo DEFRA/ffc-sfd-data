@@ -12,7 +12,7 @@ type Query {
   preferences(sbi: String!): Preferences
   allCustomerQueryTickets: AllCustomerQueryTickets
   customerQueryTicketsBySbi(sbi: String!): CustomerQueryTicketsBySbi
-  customerQueryTicketById(id: String!): CustomerQueryTicketResponse
+  customerQueryTicketById(id: String!): CustomerQueryTicket
 }
 
 type Mutation {
@@ -139,6 +139,7 @@ type Status {
 }
 
 type Responses {
+  timestamp: String
   internalUser: Boolean
   name: String
   heading: String
@@ -147,8 +148,8 @@ type Responses {
 
 type CustomerQueryTicket {
   id: String
-  internalUser: Boolean
   timestamp: String
+  internalUser: Boolean
   name: String
   crn: String
   sbi: String
@@ -163,12 +164,10 @@ type CustomerQueryTicketResponse {
 }
 
 type CustomerQueryTicketsBySbi {
-  status: Status
   customerQueryTickets: [CustomerQueryTicket]
 }
 
 type AllCustomerQueryTickets {
-  status: Status
   customerQueryTickets: [CustomerQueryTicket]
 }
 

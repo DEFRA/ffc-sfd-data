@@ -1,6 +1,5 @@
 const cosmos = require('../../../cosmos')
 const { cosmosConfig } = require('../../../config')
-const { convertCosmosTimestamp } = require('../../../utils')
 
 const customerQueryTicketsBySbi = async (_root, args, context) => {
   try {
@@ -25,14 +24,9 @@ const customerQueryTicketsBySbi = async (_root, args, context) => {
     }
 
     return {
-      status: {
-        code: 200,
-        success: true,
-        message: 'Customer query ticket(s) retrieved successfully from Cosmos DB'
-      },
       customerQueryTickets: response.resources.map((x) => ({
         id: x.id,
-        timestamp: convertCosmosTimestamp(x._ts),
+        timestamp: x.timestamp,
         internalUser: x.internalUser,
         name: x.name,
         crn: x.crn,

@@ -1,13 +1,12 @@
 const cosmos = require('../../../cosmos')
 const { cosmosConfig } = require('../../../config')
-const { convertCosmosTimestamp } = require('../../../utils')
 
 const allCustomerQueryTickets = async (_root, args, context) => {
   try {
     const { queriesDatabase } = await cosmos()
 
     const querySpec = {
-      query: 'SELECT * FROM customerQueryResponse cq ORDER BY cq._ts ASC'
+      query: 'SELECT * FROM customerQueryResponse cq ORDER BY cq.timestamp ASC'
     }
 
     const response = await queriesDatabase
@@ -16,15 +15,10 @@ const allCustomerQueryTickets = async (_root, args, context) => {
       .fetchAll()
 
     return {
-      status: {
-        code: 200,
-        success: true,
-        message: 'Customer query ticket(s) retrieved successfully from Cosmos DB'
-      },
       customerQueryTickets: response.resources.map((x) => ({
         id: x.id,
+        timestamp: x.timestamp,
         internalUser: x.internalUser,
-        timestamp: convertCosmosTimestamp(x._ts),
         name: x.name,
         crn: x.crn,
         sbi: x.sbi,

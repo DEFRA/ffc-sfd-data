@@ -1,6 +1,6 @@
 const cosmos = require('../../../cosmos')
 const { cosmosConfig } = require('../../../config')
-const { convertCosmosTimestamp } = require('../../../utils')
+const { generateTimestamp } = require('../../../utils')
 
 const updateCustomerQueryTicket = async (_root, args, context) => {
   try {
@@ -31,6 +31,7 @@ const updateCustomerQueryTicket = async (_root, args, context) => {
     }
 
     item.responses.unshift({
+      timestamp: generateTimestamp(),
       internalUser: args.internalUser,
       name: args.name,
       heading: args.heading,
@@ -51,7 +52,7 @@ const updateCustomerQueryTicket = async (_root, args, context) => {
         id: upsertResponse.resource.id,
         originalQuery: upsertResponse.resource.originalQuery,
         internalUser: upsertResponse.resource.internalUser,
-        timestamp: convertCosmosTimestamp(item._ts),
+        timestamp: upsertResponse.resource.timestamp,
         name: upsertResponse.resource.name,
         crn: upsertResponse.resource.crn,
         sbi: upsertResponse.resource.sbi,
