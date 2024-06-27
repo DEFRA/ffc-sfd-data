@@ -1,54 +1,36 @@
 const typeDefs = `#graphql
+
 type Query {
   personOrganisations: PersonOrganisations
-}
-
-type Query {
-
-
   person: Person
-}
-
-type Query {
   organisation(organisationId: Int!): Organisation
-}
-
-
-
-type Query {
   permissions(organisationId: Int!, personId: Int!): Permissions
-}
-
-type Query {
   notification(id: String!): Notification
-}
-
-type Query {
   notificationsBySbi(sbi: String!): NotificationsBySbi
-}
-
-type Query {
   applicationsBySbi(sbi: String!): ApplicationsBySbi
-}
-
-type Query {
   payments(sbi: String!): Payments
-}
-
-type Query {
   preferences(sbi: String!): Preferences
+  allCustomerQueryTickets: AllCustomerQueryTickets
+  customerQueryTicketsBySbi(sbi: String!): CustomerQueryTicketsBySbi
+  customerQueryTicketById(id: String!): CustomerQueryTicket
 }
 
-type Query {
-  customerQuery(id: String!): CustomerQuery
-}
+type Mutation {
+  createCustomerQueryTicket(
+    name: String
+    crn: String
+    sbi: String
+    heading: String
+    body: String
+  ): CustomerQueryTicketResponse
 
-type Query {
-  customerQueriesBySbi(sbi: String!): CustomerQueriesBySbi
-}
-
-type Query {
-  allCustomerQueries: AllCustomerQueries
+  updateCustomerQueryTicket(
+    id: String!
+    internalUser: Boolean
+    name: String
+    heading: String
+    body: String
+  ): CustomerQueryTicketResponse
 }
 
 type Permissions {
@@ -150,22 +132,45 @@ type Preference {
   content: String
 }
 
-type CustomerQuery {
+type Status {
+  code: Int
+  success: Boolean
+  message: String
+}
+
+type Responses {
+  timestamp: String
+  internalUser: Boolean
+  name: String
+  heading: String
+  body: String
+}
+
+type CustomerQueryTicket {
   id: String
+  timestamp: String
+  internalUser: Boolean
+  name: String
   crn: String
   sbi: String
   heading: String
-  body: String 
+  body: String
+  responses: [Responses]
 }
 
-type CustomerQueriesBySbi {
-  sbi: String!
-  customerQueries: [CustomerQuery]
+type CustomerQueryTicketResponse {
+  status: Status
+  customerQueryTicket: CustomerQueryTicket
 }
 
-type AllCustomerQueries {
-  customerQueries: [CustomerQuery]
+type CustomerQueryTicketsBySbi {
+  customerQueryTickets: [CustomerQueryTicket]
 }
+
+type AllCustomerQueryTickets {
+  customerQueryTickets: [CustomerQueryTicket]
+}
+
 `
 
 module.exports = { typeDefs }
