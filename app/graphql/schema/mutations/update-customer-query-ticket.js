@@ -50,7 +50,6 @@ const updateCustomerQueryTicket = async (_root, args, context) => {
       },
       customerQueryTicket: {
         id: upsertResponse.resource.id,
-        originalQuery: upsertResponse.resource.originalQuery,
         internalUser: upsertResponse.resource.internalUser,
         timestamp: upsertResponse.resource.timestamp,
         name: upsertResponse.resource.name,
