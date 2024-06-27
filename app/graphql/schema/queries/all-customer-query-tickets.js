@@ -19,7 +19,7 @@ const allCustomerQueryTickets = async (_root, args, context) => {
       status: {
         code: 200,
         success: true,
-        message: 'Customer query tickets retrieved successfully from Cosmos DB'
+        message: 'Customer query ticket(s) retrieved successfully from Cosmos DB'
       },
       customerQueryTickets: response.resources.map((x) => ({
         id: x.id,

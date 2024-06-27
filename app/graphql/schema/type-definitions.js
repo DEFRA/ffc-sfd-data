@@ -12,7 +12,7 @@ type Query {
   preferences(sbi: String!): Preferences
   allCustomerQueryTickets: AllCustomerQueryTickets
   customerQueryTicketsBySbi(sbi: String!): CustomerQueryTicketsBySbi
-  customerQueryTicketById(id: String!): CustomerQueryTicket
+  customerQueryTicketById(id: String!): CustomerQueryTicketResponse
 }
 
 type Mutation {
