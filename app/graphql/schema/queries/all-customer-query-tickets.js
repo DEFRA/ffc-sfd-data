@@ -16,6 +16,11 @@ const allCustomerQueryTickets = async (_root, args, context) => {
       .fetchAll()
 
     return {
+      status: {
+        code: 200,
+        success: true,
+        message: 'Customer query tickets retrieved successfully from Cosmos DB'
+      },
       customerQueryTickets: response.resources.map((x) => ({
         id: x.id,
         internalUser: x.internalUser,

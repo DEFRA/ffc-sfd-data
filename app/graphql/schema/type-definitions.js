@@ -16,12 +16,13 @@ type Query {
 }
 
 type Mutation {
-  createCustomerQueryTicket(name: String
+  createCustomerQueryTicket(
+    name: String
     crn: String
     sbi: String
     heading: String
     body: String
-  ): CustomerQueryTicket
+  ): CustomerQueryTicketResponse
 
   updateCustomerQueryTicket(
     id: String!
@@ -29,7 +30,7 @@ type Mutation {
     name: String
     heading: String
     body: String
-  ): CustomerQueryTicket
+  ): CustomerQueryTicketResponse
 }
 
 type Permissions {
@@ -154,14 +155,20 @@ type CustomerQueryTicket {
   heading: String
   body: String
   responses: [Responses]
+}
+
+type CustomerQueryTicketResponse {
   status: Status
+  customerQueryTicket: CustomerQueryTicket
 }
 
 type CustomerQueryTicketsBySbi {
+  status: Status
   customerQueryTickets: [CustomerQueryTicket]
 }
 
 type AllCustomerQueryTickets {
+  status: Status
   customerQueryTickets: [CustomerQueryTicket]
 }
 

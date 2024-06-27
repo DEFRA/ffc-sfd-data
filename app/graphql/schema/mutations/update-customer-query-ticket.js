@@ -42,20 +42,22 @@ const updateCustomerQueryTicket = async (_root, args, context) => {
       .items.upsert(item)
 
     return {
-      id: upsertResponse.resource.id,
-      originalQuery: upsertResponse.resource.originalQuery,
-      internalUser: upsertResponse.resource.internalUser,
-      timestamp: convertCosmosTimestamp(item._ts),
-      name: upsertResponse.resource.name,
-      crn: upsertResponse.resource.crn,
-      sbi: upsertResponse.resource.sbi,
-      heading: upsertResponse.resource.heading,
-      body: upsertResponse.resource.body,
-      responses: upsertResponse.resource.responses,
       status: {
         code: upsertResponse.statusCode,
         success: upsertResponse.statusCode >= 200 && upsertResponse.statusCode < 300,
         message: upsertResponse.statusCode >= 200 && upsertResponse.statusCode < 300 ? 'Customer query ticket updated successfully' : upsertResponse.messages[0].message
+      },
+      customerQueryTicket: {
+        id: upsertResponse.resource.id,
+        originalQuery: upsertResponse.resource.originalQuery,
+        internalUser: upsertResponse.resource.internalUser,
+        timestamp: convertCosmosTimestamp(item._ts),
+        name: upsertResponse.resource.name,
+        crn: upsertResponse.resource.crn,
+        sbi: upsertResponse.resource.sbi,
+        heading: upsertResponse.resource.heading,
+        body: upsertResponse.resource.body,
+        responses: upsertResponse.resource.responses
       }
     }
   } catch (error) {
