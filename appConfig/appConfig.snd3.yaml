@@ -26,6 +26,6 @@
   value: "{{servicename}}-APIM-HOST-INTERNAL"
   type: "keyvault"
 - key: REDIS_HOST
-  value: "SNDADPINFRD3401.redis.cache.windows.net"
+  value: "SNDADPINFRD4401.redis.cache.windows.net"
 - key: REDIS_PORT
   value: "6380"
