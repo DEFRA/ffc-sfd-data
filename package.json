@@ -1,6 +1,6 @@
 {
   "name": "ffc-sfd-data",
-  "version": "0.6.8",
+  "version": "0.7.0",
   "description": "Data integration service for Single Front Door",
   "homepage": "github.com?owner=defra&repo=ffc-sfd-data&organization=defra",
   "main": "app/index.js",
@@ -24,6 +24,7 @@
   "dependencies": {
     "@as-integrations/hapi": "2.0.1",
     "@azure/cosmos": "4.0.0",
+    "@azure/identity": "4.3.0",
     "@hapi/boom": "10.0.1",
     "@hapi/catbox-redis": "6.0.2",
     "@hapi/hapi": "21.3.2",

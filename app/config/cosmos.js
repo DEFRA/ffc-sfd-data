@@ -3,6 +3,7 @@ const Joi = require('joi')
 const schema = Joi.object({
   endpoint: Joi.string(),
   key: Joi.string(),
+  managedIdentityClientId: Joi.string().optional(),
   messagesDatabase: Joi.string().default('ffc-sfd-customer-receiver-messages'),
   messagesContainer: Joi.string().default('messages-container'),
   applicationsDatabase: Joi.string().default('ffc-sfd-customer-receiver-applications'),
@@ -17,7 +18,8 @@ const schema = Joi.object({
 
 const config = {
   endpoint: process.env.COSMOS_ENDPOINT,
-  key: process.env.COSMOS_KEY
+  key: process.env.COSMOS_KEY,
+  managedIdentityClientId: process.env.AZURE_CLIENT_ID
 }
 
 const { error, value } = schema.validate(config, { abortEarly: false })

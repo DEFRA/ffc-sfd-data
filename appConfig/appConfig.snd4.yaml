@@ -29,3 +29,5 @@
   value: "SNDADPINFRD4401.redis.cache.windows.net"
 - key: REDIS_PORT
   value: "6380"
+- key: COSMOS_ENDPOINT
+  value: "https://fcp-sfd-temp-cosmos.documents.azure.com:443/"
