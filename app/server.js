@@ -1,10 +1,9 @@
 require('./insights').setup()
 const Hapi = require('@hapi/hapi')
-const { DEVELOPMENT } = require('./constants/environments')
-const { cacheConfig } = require('./config')
+const { cacheConfig, cosmosConfig } = require('./config')
 
 // Disable TLS validation in development to allow connection to cosmosDb emulator
-if (process.env.NODE_ENV === DEVELOPMENT) process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
+if (cosmosConfig.isDev) process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
 
 const server = Hapi.server({
   port: process.env.PORT,
