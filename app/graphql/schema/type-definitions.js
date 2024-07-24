@@ -1,4 +1,8 @@
-const typeDefs = `#graphql
+const { constraintDirectiveTypeDefs } = require('graphql-constraint-directive')
+const { nameValidationDirective } = require('./constraints')
+
+const typeDefs = `
+  ${constraintDirectiveTypeDefs}
 
 type Query {
   personOrganisations: PersonOrganisations
@@ -17,7 +21,7 @@ type Query {
 
 type Mutation {
   createCustomerQueryTicket(
-    name: String
+    name: String ${nameValidationDirective}
     crn: String
     sbi: String
     heading: String
@@ -27,7 +31,7 @@ type Mutation {
   updateCustomerQueryTicket(
     id: String!
     internalUser: Boolean
-    name: String
+    name: String ${nameValidationDirective}
     heading: String
     body: String
   ): CustomerQueryTicketResponse
@@ -150,7 +154,7 @@ type CustomerQueryTicket {
   id: String
   timestamp: String
   internalUser: Boolean
-  name: String
+  name: String ${nameValidationDirective}
   crn: String
   sbi: String
   heading: String

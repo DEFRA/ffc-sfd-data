@@ -33,10 +33,13 @@ const updateCustomerQueryTicket = async (_root, args, context) => {
     item.responses.unshift({
       timestamp: generateTimestamp(),
       internalUser: args.internalUser,
-      name: args.name,
       heading: args.heading,
       body: args.body
     })
+
+    if (args.name && args.name.trim() !== '') {
+      item.name = args.name
+    }
 
     const upsertResponse = await queriesDatabase
       .container(cosmosConfig.queriesContainer)
