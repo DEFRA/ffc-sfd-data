@@ -31,6 +31,29 @@ type Mutation {
     heading: String
     body: String
   ): CustomerQueryTicketResponse
+
+  createFileMetadata(metadata: FileMetadataInput): CreateFileMetadataResponse
+}
+
+
+input FileMetadataInput {
+  filename: String
+  scheme: String
+  blobReference: String
+  collection: String
+}
+
+type FileMetadata {
+  filename: String
+  scheme: String
+  blobReference: String
+  collection: String
+}
+
+type CreateFileMetadataResponse {
+  id: String
+  status: Status
+  metadata: FileMetadata
 }
 
 type Permissions {
