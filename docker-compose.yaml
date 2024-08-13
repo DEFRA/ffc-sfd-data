@@ -24,7 +24,7 @@ services:
       REDIS_HOST: ffc-sfd-data-redis
 
   ffc-sfd-data-postgres:
-    image: postgres:11.4-alpine
+    image: postgres:15
     environment:
       POSTGRES_DB: ffc-sfd-data
       POSTGRES_PASSWORD: ppp
