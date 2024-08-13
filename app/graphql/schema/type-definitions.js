@@ -13,6 +13,7 @@ type Query {
   allCustomerQueryTickets: AllCustomerQueryTickets
   customerQueryTicketsBySbi(sbi: String!): CustomerQueryTicketsBySbi
   customerQueryTicketById(id: String!): CustomerQueryTicket
+  filesMetadata(sbi: String!): FilesMetadata
 }
 
 type Mutation {
@@ -41,6 +42,12 @@ input FileMetadataInput {
   scheme: String
   blobReference: String
   collection: String
+  crn: String
+  sbi: String
+}
+
+type FilesMetadata {
+  metadata: [FileMetadata]
 }
 
 type FileMetadata {
@@ -48,6 +55,8 @@ type FileMetadata {
   scheme: String
   blobReference: String
   collection: String
+  crn: String
+  sbi: String
 }
 
 type CreateFileMetadataResponse {
@@ -55,6 +64,7 @@ type CreateFileMetadataResponse {
   status: Status
   metadata: FileMetadata
 }
+
 
 type Permissions {
   role: String
