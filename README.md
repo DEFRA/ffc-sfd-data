@@ -9,9 +9,11 @@ Optional:
 - Kubernetes
 - Helm
 
-## Notes on Azure Cosmos DB
+## Azure Cosmos DB
 
 For local development, the Azure Cosmos DB Emulator Docker image is used to create a local instance of Cosmos. This can be very slow to start up so if Cosmos fails to create the necessary databases because the time allocated is too short, update the [cosmos-wait script](https://github.com/DEFRA/ffc-sfd-data/blob/main/scripts/cosmos-wait) to increase the wait time for Cosmos DB to start.
+
+Unused databases are disabled due to the lack of current RU's for the Cosmos DB instance in SND4. These can be renabled using the [same pattern](https://github.com/DEFRA/ffc-sfd-data/blob/main/app/cosmos/index.js).
 
 ## Running the application
 
