@@ -36,8 +36,6 @@ type Mutation {
   deleteFileMetadataByBlobReference(
   blobReference: String!
   ): FileMetadataResponse
-
-  createFileMetadata(metadata: FileMetadataInput): FileMetadataResponse
 }
 
 input FileMetadataInput {
