@@ -10,7 +10,7 @@ const { preferences } = require('./preferences')
 const { allCustomerQueryTickets } = require('./all-customer-query-tickets')
 const { customerQueryTicketsBySbi } = require('./customer-queries-by-sbi')
 const { customerQueryTicketById } = require('./customer-query-ticket-by-id')
-const { filesMetadata } = require('./files-metadata')
+const { filesMetadataBySbi } = require('./files-metadata-by-sbi')
 
 module.exports = {
   applicationsBySbi,
@@ -25,5 +25,5 @@ module.exports = {
   allCustomerQueryTickets,
   customerQueryTicketsBySbi,
   customerQueryTicketById,
-  filesMetadata
+  filesMetadataBySbi
 }

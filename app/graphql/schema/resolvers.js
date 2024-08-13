@@ -11,7 +11,7 @@ const {
   allCustomerQueryTickets,
   customerQueryTicketsBySbi,
   customerQueryTicketById,
-  filesMetadata
+  filesMetadataBySbi
 } = require('./queries')
 
 const {
@@ -35,7 +35,7 @@ const resolvers = {
     allCustomerQueryTickets,
     customerQueryTicketsBySbi,
     customerQueryTicketById,
-    filesMetadata
+    filesMetadataBySbi
   },
   Mutation: {
     createCustomerQueryTicket,

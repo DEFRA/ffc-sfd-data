@@ -1,7 +1,7 @@
 const cosmos = require('../../../cosmos')
 const { cosmosConfig } = require('../../../config')
 
-const filesMetadata = async (_root, args, context) => {
+const filesMetadataBySbi = async (_root, args, context) => {
   const { filesDatabase } = await cosmos()
   const querySpec = {
     query: 'SELECT * FROM files f WHERE f.metadata.sbi = @sbi',
@@ -17,5 +17,5 @@ const filesMetadata = async (_root, args, context) => {
 }
 
 module.exports = {
-  filesMetadata
+  filesMetadataBySbi
 }

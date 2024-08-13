@@ -13,7 +13,7 @@ type Query {
   allCustomerQueryTickets: AllCustomerQueryTickets
   customerQueryTicketsBySbi(sbi: String!): CustomerQueryTicketsBySbi
   customerQueryTicketById(id: String!): CustomerQueryTicket
-  filesMetadata(sbi: String!): FilesMetadata
+  filesMetadataBySbi(sbi: String!): FilesMetadataBySbi
 }
 
 type Mutation {
@@ -49,7 +49,7 @@ input FileMetadataInput {
   sbi: String
 }
 
-type FilesMetadata {
+type FilesMetadataBySbi {
   metadata: [FileMetadata]
 }
 
