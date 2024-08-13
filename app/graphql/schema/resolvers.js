@@ -17,6 +17,7 @@ const {
 const {
   createCustomerQueryTicket,
   updateCustomerQueryTicket,
+  deleteFileMetadataByBlobReference,
   createFileMetadata
 } = require('./mutations')
 
@@ -39,6 +40,7 @@ const resolvers = {
   Mutation: {
     createCustomerQueryTicket,
     updateCustomerQueryTicket,
+    deleteFileMetadataByBlobReference,
     createFileMetadata
   }
 }

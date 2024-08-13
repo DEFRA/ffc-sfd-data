@@ -33,9 +33,12 @@ type Mutation {
     body: String
   ): CustomerQueryTicketResponse
 
-  createFileMetadata(metadata: FileMetadataInput): CreateFileMetadataResponse
-}
+  deleteFileMetadataByBlobReference(
+  blobReference: String!
+  ): FileMetadataResponse
 
+  createFileMetadata(metadata: FileMetadataInput): FileMetadataResponse
+}
 
 input FileMetadataInput {
   filename: String
@@ -59,12 +62,11 @@ type FileMetadata {
   sbi: String
 }
 
-type CreateFileMetadataResponse {
+type FileMetadataResponse {
   id: String
   status: Status
   metadata: FileMetadata
 }
-
 
 type Permissions {
   role: String
