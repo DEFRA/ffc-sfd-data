@@ -34,7 +34,7 @@ type Mutation {
   ): CustomerQueryTicketResponse
 
   deleteFileMetadataByBlobReference(
-  blobReference: String!
+    blobReference: String!
   ): FileMetadataResponse
 }
 
