@@ -18,11 +18,9 @@ const deleteFileMetadataByBlobReference = async (_root, args, context) => {
 
   if (resources.length === 0) {
     return {
-      status: {
-        code: 404,
-        success: false,
-        message: 'Metadata not found'
-      }
+      code: 404,
+      success: false,
+      message: 'Metadata not found'
     }
   }
 
@@ -34,14 +32,9 @@ const deleteFileMetadataByBlobReference = async (_root, args, context) => {
     .delete()
 
   return {
-    status: {
-      code: response.statusCode,
-      success: response.statusCode >= 200 && response.statusCode < 300,
-      message: response.statusCode >= 200 && response.statusCode < 300 ? 'Metadata deleted successfully' : response.message
-    },
-    metadata: {
-      ...fileMetadata.metadata
-    }
+    code: response.statusCode,
+    success: response.statusCode >= 200 && response.statusCode < 300,
+    message: response.statusCode >= 200 && response.statusCode < 300 ? 'Metadata deleted successfully' : response.message
   }
 }
 

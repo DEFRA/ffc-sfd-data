@@ -35,7 +35,7 @@ type Mutation {
 
   deleteFileMetadataByBlobReference(
   blobReference: String!
-  ): FileMetadataResponse
+  ): Status
 }
 
 type FilesMetadataBySbi {
