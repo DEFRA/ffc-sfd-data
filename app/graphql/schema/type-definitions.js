@@ -38,15 +38,6 @@ type Mutation {
   ): FileMetadataResponse
 }
 
-input FileMetadataInput {
-  filename: String
-  scheme: String
-  blobReference: String
-  collection: String
-  crn: String
-  sbi: String
-}
-
 type FilesMetadataBySbi {
   metadata: [FileMetadata]
 }
