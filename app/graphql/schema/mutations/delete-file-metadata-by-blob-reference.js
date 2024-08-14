@@ -5,7 +5,7 @@ const deleteFileMetadataByBlobReference = async (_root, args, context) => {
   const { filesDatabase } = await cosmos()
 
   const querySpec = {
-    query: 'SELECT * FROM c WHERE c.metadata.blobReference = @blobReference',
+    query: 'SELECT * FROM c WHERE c.blobReference = @blobReference',
     parameters: [
       { name: '@blobReference', value: args.blobReference }
     ]

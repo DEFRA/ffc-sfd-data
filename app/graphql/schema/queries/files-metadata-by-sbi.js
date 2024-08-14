@@ -4,7 +4,7 @@ const { cosmosConfig } = require('../../../config')
 const filesMetadataBySbi = async (_root, args, context) => {
   const { filesDatabase } = await cosmos()
   const querySpec = {
-    query: 'SELECT * FROM files f WHERE f.metadata.sbi = @sbi',
+    query: 'SELECT * FROM files f WHERE f.sbi = @sbi',
     parameters: [{ name: '@sbi', value: `${args.sbi}` }]
   }
   const response = await filesDatabase
@@ -12,7 +12,7 @@ const filesMetadataBySbi = async (_root, args, context) => {
     .items.query(querySpec)
     .fetchAll()
   return {
-    metadata: response.resources.map(resource => resource.metadata)
+    metadata: response.resources
   }
 }
 
