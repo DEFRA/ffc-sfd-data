@@ -13,6 +13,4 @@ const permissions = async (_root, args, context) => {
   }
 }
 
-export default {
-  permissions
-}
+export { permissions }

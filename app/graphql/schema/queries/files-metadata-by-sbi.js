@@ -16,6 +16,4 @@ const filesMetadataBySbi = async (_root, args, context) => {
   }
 }
 
-export default {
-  filesMetadataBySbi
-}
+export { filesMetadataBySbi }

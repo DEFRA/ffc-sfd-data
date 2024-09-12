@@ -26,6 +26,4 @@ const notificationsBySbi = async (_root, args, context) => {
   }
 }
 
-export default {
-  notificationsBySbi
-}
+export { notificationsBySbi }

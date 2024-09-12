@@ -23,4 +23,4 @@ const initCosmos = async () => {
   }
 }
 
-export default { initCosmos }
+export { initCosmos }

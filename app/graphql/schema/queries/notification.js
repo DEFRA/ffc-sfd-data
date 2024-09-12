@@ -23,6 +23,4 @@ const notification = async (_root, args, context) => {
   }
 }
 
-export default {
-  notification
-}
+export { notification }

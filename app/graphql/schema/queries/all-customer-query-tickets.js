@@ -32,6 +32,4 @@ const allCustomerQueryTickets = async (_root, args, context) => {
   }
 }
 
-export default {
-  allCustomerQueryTickets
-}
+export { allCustomerQueryTickets }

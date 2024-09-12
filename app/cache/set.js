@@ -1,4 +1,4 @@
-import { cacheConfig } from '../config.js'
+import { cacheConfig } from '../config/index.js'
 import { getCache } from './get-cache.js'
 
 const set = async (key, value) => {
@@ -6,4 +6,4 @@ const set = async (key, value) => {
   await cache.set(key, value, cacheConfig.ttl)
 }
 
-export default { set }
+export { set }

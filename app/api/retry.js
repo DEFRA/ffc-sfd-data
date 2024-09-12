@@ -1,4 +1,4 @@
-import { drop } from '../cache'
+import { drop } from '../cache/index.js'
 import { APIM_TOKEN } from '../constants/cache-keys.js'
 
 const retry = async (fn, retriesLeft = 3, interval = 1000, exponential = true) => {

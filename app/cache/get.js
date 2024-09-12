@@ -5,4 +5,4 @@ const get = async (key) => {
   return cache.get(key)
 }
 
-export default { get }
+export { get }

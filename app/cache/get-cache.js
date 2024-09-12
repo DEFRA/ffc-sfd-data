@@ -4,4 +4,4 @@ const getCache = () => {
   return server.app.cache
 }
 
-export default { getCache }
+export { getCache }

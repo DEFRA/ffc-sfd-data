@@ -1,4 +1,4 @@
-import { apimConfig } from '../config'
+import { apimConfig } from '../config/index.js'
 
 const getApimHeaders = (headers, apimToken) => {
   const apimHeaders = {
@@ -21,6 +21,4 @@ const getApimHeaders = (headers, apimToken) => {
   return apimHeaders
 }
 
-module.exports = {
-  getApimHeaders
-}
+export { getApimHeaders }

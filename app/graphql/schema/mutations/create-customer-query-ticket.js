@@ -32,6 +32,4 @@ const createCustomerQueryTicket = async (_root, args, context) => {
   }
 }
 
-export default {
-  createCustomerQueryTicket
-}
+export { createCustomerQueryTicket }

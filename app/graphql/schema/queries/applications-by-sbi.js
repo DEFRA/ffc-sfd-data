@@ -20,6 +20,4 @@ const applicationsBySbi = async (_root, args, context) => {
   }
 }
 
-export default {
-  applicationsBySbi
-}
+export { applicationsBySbi }

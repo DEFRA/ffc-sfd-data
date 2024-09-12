@@ -1,7 +1,7 @@
 import Wreck from '@hapi/wreck'
 import FormData from 'form-data'
-import { apimConfig } from '../config'
-import { get, set } from '../cache'
+import { apimConfig } from '../config/index.js'
+import { get, set } from '../cache/index.js'
 import { APIM_TOKEN } from '../constants/cache-keys.js'
 
 const getApimToken = async () => {
@@ -32,4 +32,4 @@ const getApimTokenFromApim = async () => {
   })
 }
 
-export default { getApimToken }
+export { getApimToken }

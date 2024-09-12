@@ -1,6 +1,6 @@
 import Wreck from '@hapi/wreck'
 import { getApimToken } from './get-apim-token.js'
-import { get as getCachedResponse, set as setCachedResponse } from '../cache'
+import { get as getCachedResponse, set as setCachedResponse } from '../cache/index.js'
 import retry from './retry.js'
 import { getCacheKey } from './get-cache-key.js'
 import { getHost } from './get-host.js'
@@ -25,4 +25,4 @@ const getFromApim = async (path, headers, cacheKey) => {
   return payload
 }
 
-export default { get }
+export { get }

@@ -5,4 +5,4 @@ const drop = async (key) => {
   await cache.drop(key)
 }
 
-export default { drop }
+export { drop }

@@ -7,4 +7,4 @@ const apolloServer = new ApolloServer({
   resolvers
 })
 
-export default { apolloServer }
+export { apolloServer }

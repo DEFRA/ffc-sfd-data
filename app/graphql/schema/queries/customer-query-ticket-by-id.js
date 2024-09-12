@@ -39,6 +39,4 @@ const customerQueryTicketById = async (_root, args, context) => {
   }
 }
 
-export default {
-  customerQueryTicketById
-}
+export { customerQueryTicketById }

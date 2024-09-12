@@ -1,3 +1,1 @@
-export default {
-  APIM_TOKEN: 'apim-token'
-}
+export const APIM_TOKEN = 'apim-token'

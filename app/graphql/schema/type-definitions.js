@@ -197,4 +197,4 @@ type AllCustomerQueryTickets {
 
 `
 
-export default { typeDefs }
+export { typeDefs }

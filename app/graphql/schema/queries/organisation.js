@@ -34,6 +34,4 @@ const organisation = async (_root, args, context) => {
   }
 }
 
-export default {
-  organisation
-}
+export { organisation }

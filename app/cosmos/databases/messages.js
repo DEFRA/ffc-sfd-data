@@ -1,5 +1,5 @@
 import cosmosClient from '../client.js'
-import { cosmosConfig } from '../../config'
+import { cosmosConfig } from '../../config/index.js'
 
 const messagesDatabase = async () => {
   try {
@@ -16,4 +16,4 @@ const messagesDatabase = async () => {
   }
 }
 
-export default { messagesDatabase }
+export { messagesDatabase }

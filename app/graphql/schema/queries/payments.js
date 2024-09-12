@@ -20,6 +20,4 @@ const payments = async (_root, args, context) => {
   }
 }
 
-export default {
-  payments
-}
+export { payments }

@@ -38,6 +38,4 @@ const deleteFileMetadataByBlobReference = async (_root, args, context) => {
   }
 }
 
-export default {
-  deleteFileMetadataByBlobReference
-}
+export { deleteFileMetadataByBlobReference }

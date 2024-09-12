@@ -31,6 +31,4 @@ const person = async (_root, _args, context) => {
   }
 }
 
-export default {
-  person
-}
+export { person }

@@ -29,6 +29,4 @@ const customerQueryTicketsBySbi = async (_root, args, context) => {
   }
 }
 
-export default {
-  customerQueryTicketsBySbi
-}
+export { customerQueryTicketsBySbi }

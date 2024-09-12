@@ -23,6 +23,4 @@ const preferences = async (_root, args, context) => {
   }
 }
 
-export default {
-  preferences
-}
+export { preferences }

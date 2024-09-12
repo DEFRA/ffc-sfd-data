@@ -65,6 +65,4 @@ const updateCustomerQueryTicket = async (_root, args, context) => {
   }
 }
 
-export default {
-  updateCustomerQueryTicket
-}
+export { updateCustomerQueryTicket }

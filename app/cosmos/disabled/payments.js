@@ -1,5 +1,5 @@
 import cosmosClient from '../client.js'
-import { cosmosConfig } from '../../config'
+import { cosmosConfig } from '../../config/index.js'
 
 const paymentsDatabase = async () => {
   try {

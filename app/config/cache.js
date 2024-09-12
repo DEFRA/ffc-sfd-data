@@ -51,6 +51,8 @@ value.catboxOptions = value.useRedis
     }
   : {}
 
-value.catbox = value.useRedis ? require('@hapi/catbox-redis') : require('@hapi/catbox-memory')
+value.catbox = value.useRedis
+  ? (await import('@hapi/catbox-redis')).default
+  : (await import('@hapi/catbox-memory')).default
 
 export default value

@@ -13,6 +13,4 @@ const personOrganisations = async (_root, _args, context) => {
   }
 }
 
-export default {
-  personOrganisations
-}
+export { personOrganisations }
