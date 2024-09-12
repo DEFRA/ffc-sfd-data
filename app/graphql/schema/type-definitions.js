@@ -13,6 +13,7 @@ type Query {
   allCustomerQueryTickets: AllCustomerQueryTickets
   customerQueryTicketsBySbi(sbi: String!): CustomerQueryTicketsBySbi
   customerQueryTicketById(id: String!): CustomerQueryTicket
+  filesMetadataBySbi(sbi: String!): FilesMetadataBySbi
 }
 
 type Mutation {
@@ -31,6 +32,29 @@ type Mutation {
     heading: String
     body: String
   ): CustomerQueryTicketResponse
+
+  deleteFileMetadataByBlobReference(
+  blobReference: String!
+  ): Status
+}
+
+type FilesMetadataBySbi {
+  metadata: [FileMetadata]
+}
+
+type FileMetadata {
+  filename: String
+  scheme: String
+  blobReference: String
+  collection: String
+  crn: String
+  sbi: String
+}
+
+type FileMetadataResponse {
+  id: String
+  status: Status
+  metadata: FileMetadata
 }
 
 type Permissions {

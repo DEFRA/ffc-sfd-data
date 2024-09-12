@@ -10,12 +10,14 @@ const {
   preferences,
   allCustomerQueryTickets,
   customerQueryTicketsBySbi,
-  customerQueryTicketById
+  customerQueryTicketById,
+  filesMetadataBySbi
 } = require('./queries')
 
 const {
   createCustomerQueryTicket,
-  updateCustomerQueryTicket
+  updateCustomerQueryTicket,
+  deleteFileMetadataByBlobReference
 } = require('./mutations')
 
 const resolvers = {
@@ -31,11 +33,13 @@ const resolvers = {
     preferences,
     allCustomerQueryTickets,
     customerQueryTicketsBySbi,
-    customerQueryTicketById
+    customerQueryTicketById,
+    filesMetadataBySbi
   },
   Mutation: {
     createCustomerQueryTicket,
-    updateCustomerQueryTicket
+    updateCustomerQueryTicket,
+    deleteFileMetadataByBlobReference
   }
 }
 
