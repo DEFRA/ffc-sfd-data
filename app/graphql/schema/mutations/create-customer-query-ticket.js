@@ -1,6 +1,6 @@
-import cosmos from '../../../cosmos'
-import { cosmosConfig } from '../../../config'
-import { generateTimestamp } from '../../../utils'
+import cosmos from '../../../cosmos/index.js'
+import { cosmosConfig } from '../../../config/index.js'
+import { generateTimestamp } from '../../../utils/index.js'
 
 const createCustomerQueryTicket = async (_root, args, context) => {
   const { queriesDatabase } = await cosmos()

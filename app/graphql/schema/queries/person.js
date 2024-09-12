@@ -1,4 +1,4 @@
-import { get } from '../../../api'
+import { get } from '../../../api/index.js'
 import { getFullAddress } from './get-full-address.js'
 
 const person = async (_root, _args, context) => {

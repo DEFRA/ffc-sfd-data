@@ -1,4 +1,4 @@
-import { get } from '../../../api'
+import { get } from '../../../api/index.js'
 
 const personOrganisations = async (_root, _args, context) => {
   const response = await get('/organisation/person/3337243/summary?search=', context.headers)

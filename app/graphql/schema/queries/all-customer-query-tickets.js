@@ -1,5 +1,5 @@
-import cosmos from '../../../cosmos'
-import { cosmosConfig } from '../../../config'
+import cosmos from '../../../cosmos/index.js'
+import { cosmosConfig } from '../../../config/index.js'
 
 const allCustomerQueryTickets = async (_root, args, context) => {
   try {

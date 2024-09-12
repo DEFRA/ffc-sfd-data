@@ -12,13 +12,13 @@ import {
   customerQueryTicketsBySbi,
   customerQueryTicketById,
   filesMetadataBySbi
-} from './queries'
+} from './queries/index.js'
 
 import {
   createCustomerQueryTicket,
   updateCustomerQueryTicket,
   deleteFileMetadataByBlobReference
-} from './mutations'
+} from './mutations/index.js'
 
 const resolvers = {
   Query: {

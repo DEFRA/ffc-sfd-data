@@ -1,6 +1,6 @@
 import './insights.js'
 import Hapi from '@hapi/hapi'
-import { cacheConfig, cosmosConfig } from './config'
+import { cacheConfig, cosmosConfig } from './config/index.js'
 
 // Disable TLS validation in development to allow connection to cosmosDb emulator
 if (cosmosConfig.isDev) process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
