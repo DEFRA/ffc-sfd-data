@@ -1,6 +1,6 @@
-const { messagesDatabase } = require('./databases/messages')
-const { queriesDatabase } = require('./databases/queries')
-const { filesDatabase } = require('./databases/files')
+import { messagesDatabase } from './databases/messages.js'
+import { queriesDatabase } from './databases/queries.js'
+import { filesDatabase } from './databases/files.js'
 
 const cosmosClient = async () => {
   try {
@@ -14,4 +14,4 @@ const cosmosClient = async () => {
   }
 }
 
-module.exports = cosmosClient
+export default cosmosClient

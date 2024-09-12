@@ -1,3 +1,3 @@
-const { get } = require('./get')
+import { get } from './get.js'
 
-module.exports = { get }
+export default { get }

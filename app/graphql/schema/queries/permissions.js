@@ -1,4 +1,4 @@
-const { get } = require('../../../api')
+import { get } from '../../../api'
 
 const permissions = async (_root, args, context) => {
   const response = await get(`/SitiAgriApi/authorisation/organisation/${args.organisationId}/authorisation`, context.headers)
@@ -13,6 +13,6 @@ const permissions = async (_root, args, context) => {
   }
 }
 
-module.exports = {
+export default {
   permissions
 }

@@ -1,5 +1,5 @@
-const { generateTimestamp } = require('./generate-timestmap')
+import { generateTimestamp } from './generate-timestmap.js'
 
-module.exports = {
+export {
   generateTimestamp
 }

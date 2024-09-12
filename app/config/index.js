@@ -1,8 +1,8 @@
-const apimConfig = require('./apim')
-const cacheConfig = require('./cache')
-const cosmosConfig = require('./cosmos')
+import apimConfig from './apim.js'
+import cacheConfig from './cache.js'
+import cosmosConfig from './cosmos.js'
 
-module.exports = {
+export {
   apimConfig,
   cacheConfig,
   cosmosConfig

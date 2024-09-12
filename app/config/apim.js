@@ -1,4 +1,4 @@
-const Joi = require('joi')
+import Joi from 'joi'
 
 const schema = Joi.object().keys({
   clientId: Joi.string().required(),
@@ -26,4 +26,4 @@ if (error) {
   throw new Error(`The API config is invalid. ${error.message}`)
 }
 
-module.exports = value
+export default value

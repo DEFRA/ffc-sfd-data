@@ -1,9 +1,9 @@
-const { apimConfig } = require('../config')
+import { apimConfig } from '../config'
 
 const getHost = (headers) => {
   return headers.email ? apimConfig.hostInternal : apimConfig.hostExternal
 }
 
-module.exports = {
+export default {
   getHost
 }

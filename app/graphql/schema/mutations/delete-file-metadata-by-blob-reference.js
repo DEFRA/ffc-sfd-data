@@ -1,5 +1,5 @@
-const cosmos = require('../../../cosmos')
-const { cosmosConfig } = require('../../../config')
+import cosmos from '../../../cosmos'
+import { cosmosConfig } from '../../../config'
 
 const deleteFileMetadataByBlobReference = async (_root, args, context) => {
   const { filesDatabase } = await cosmos()
@@ -38,6 +38,6 @@ const deleteFileMetadataByBlobReference = async (_root, args, context) => {
   }
 }
 
-module.exports = {
+export default {
   deleteFileMetadataByBlobReference
 }

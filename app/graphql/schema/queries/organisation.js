@@ -1,5 +1,5 @@
-const { get } = require('../../../api')
-const { getFullAddress } = require('./get-full-address')
+import { get } from '../../../api'
+import { getFullAddress } from './get-full-address.js'
 
 const organisation = async (_root, args, context) => {
   const response = await get(
@@ -34,6 +34,6 @@ const organisation = async (_root, args, context) => {
   }
 }
 
-module.exports = {
+export default {
   organisation
 }

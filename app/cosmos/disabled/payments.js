@@ -1,5 +1,5 @@
-const cosmosClient = require('../client')
-const { cosmosConfig } = require('../../config')
+import cosmosClient from '../client.js'
+import { cosmosConfig } from '../../config'
 
 const paymentsDatabase = async () => {
   try {
@@ -16,4 +16,4 @@ const paymentsDatabase = async () => {
   }
 }
 
-module.exports = { paymentsDatabase }
+export default { paymentsDatabase }

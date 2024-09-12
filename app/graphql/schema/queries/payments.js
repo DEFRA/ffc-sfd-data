@@ -1,5 +1,5 @@
-const cosmos = require('../../../cosmos')
-const { cosmosConfig } = require('../../../config')
+import cosmos from '../../../cosmos'
+import { cosmosConfig } from '../../../config'
 
 const payments = async (_root, args, context) => {
   const { paymentsDatabase } = await cosmos()
@@ -20,6 +20,6 @@ const payments = async (_root, args, context) => {
   }
 }
 
-module.exports = {
+export default {
   payments
 }

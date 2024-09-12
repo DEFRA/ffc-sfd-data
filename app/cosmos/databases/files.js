@@ -1,5 +1,5 @@
-const cosmosClient = require('../client')
-const { cosmosConfig } = require('../../config')
+import cosmosClient from '../client.js'
+import { cosmosConfig } from '../../config'
 
 const filesDatabase = async () => {
   try {
@@ -8,7 +8,6 @@ const filesDatabase = async () => {
     })
     await database.containers.createIfNotExists({
       id: cosmosConfig.filesContainer
-
     })
 
     return database
@@ -17,4 +16,4 @@ const filesDatabase = async () => {
   }
 }
 
-module.exports = { filesDatabase }
+export default { filesDatabase }

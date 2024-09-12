@@ -15,4 +15,4 @@ const generateTimestamp = () => {
   return date.toLocaleDateString('en-GB', options)
 }
 
-module.exports = { generateTimestamp }
+export default { generateTimestamp }

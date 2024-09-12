@@ -1,4 +1,4 @@
-const { apimConfig } = require('../config')
+import { apimConfig } from '../config'
 
 const getApimHeaders = (headers, apimToken) => {
   const apimHeaders = {

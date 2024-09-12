@@ -1,5 +1,5 @@
-const cosmos = require('../../../cosmos')
-const { cosmosConfig } = require('../../../config')
+import cosmos from '../../../cosmos'
+import { cosmosConfig } from '../../../config'
 
 const notification = async (_root, args, context) => {
   const { messagesDatabase } = await cosmos()
@@ -23,6 +23,6 @@ const notification = async (_root, args, context) => {
   }
 }
 
-module.exports = {
+export default {
   notification
 }

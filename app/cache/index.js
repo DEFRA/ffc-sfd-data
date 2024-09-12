@@ -1,8 +1,8 @@
-const { get } = require('./get')
-const { set } = require('./set')
-const { drop } = require('./drop')
+import { get } from './get.js'
+import { set } from './set.js'
+import { drop } from './drop.js'
 
-module.exports = {
+export {
   get,
   set,
   drop

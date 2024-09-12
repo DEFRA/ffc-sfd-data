@@ -1,5 +1,5 @@
-const Joi = require('joi')
-const { DEVELOPMENT, TEST, PRODUCTION } = require('../constants/environments')
+import Joi from 'joi'
+import { DEVELOPMENT, TEST, PRODUCTION } from '../constants/environments.js'
 
 const schema = Joi.object({
   endpoint: Joi.string(),
@@ -35,4 +35,4 @@ if (error) {
   throw new Error(`The cosmos config is invalid. ${error.message}`)
 }
 
-module.exports = value
+export default value

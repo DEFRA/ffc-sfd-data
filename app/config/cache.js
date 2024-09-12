@@ -1,5 +1,5 @@
-const Joi = require('joi')
-const { DEVELOPMENT, TEST, PRODUCTION } = require('../constants/environments')
+import Joi from 'joi'
+import { DEVELOPMENT, TEST, PRODUCTION } from '../constants/environments.js'
 
 const schema = Joi.object({
   host: Joi.string(),
@@ -53,4 +53,4 @@ value.catboxOptions = value.useRedis
 
 value.catbox = value.useRedis ? require('@hapi/catbox-redis') : require('@hapi/catbox-memory')
 
-module.exports = value
+export default value

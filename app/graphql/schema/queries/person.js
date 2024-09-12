@@ -1,5 +1,5 @@
-const { get } = require('../../../api')
-const { getFullAddress } = require('./get-full-address')
+import { get } from '../../../api'
+import { getFullAddress } from './get-full-address.js'
 
 const person = async (_root, _args, context) => {
   const response = await get('/person/3337243/summary', context.headers)
@@ -31,6 +31,6 @@ const person = async (_root, _args, context) => {
   }
 }
 
-module.exports = {
+export default {
   person
 }

@@ -1,4 +1,4 @@
-const { get } = require('../../../api')
+import { get } from '../../../api'
 
 const personOrganisations = async (_root, _args, context) => {
   const response = await get('/organisation/person/3337243/summary?search=', context.headers)
@@ -13,6 +13,6 @@ const personOrganisations = async (_root, _args, context) => {
   }
 }
 
-module.exports = {
+export default {
   personOrganisations
 }

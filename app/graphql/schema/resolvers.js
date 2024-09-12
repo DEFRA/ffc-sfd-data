@@ -1,4 +1,4 @@
-const {
+import {
   applicationsBySbi,
   notification,
   notificationsBySbi,
@@ -12,13 +12,13 @@ const {
   customerQueryTicketsBySbi,
   customerQueryTicketById,
   filesMetadataBySbi
-} = require('./queries')
+} from './queries'
 
-const {
+import {
   createCustomerQueryTicket,
   updateCustomerQueryTicket,
   deleteFileMetadataByBlobReference
-} = require('./mutations')
+} from './mutations'
 
 const resolvers = {
   Query: {
@@ -43,4 +43,4 @@ const resolvers = {
   }
 }
 
-module.exports = { resolvers }
+export default { resolvers }

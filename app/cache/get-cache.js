@@ -1,7 +1,7 @@
-const { server } = require('../server')
+import { server } from '../server.js'
 
 const getCache = () => {
   return server.app.cache
 }
 
-module.exports = { getCache }
+export default { getCache }

@@ -1,6 +1,6 @@
-const { DefaultAzureCredential } = require('@azure/identity')
-const { CosmosClient } = require('@azure/cosmos')
-const { cosmosConfig } = require('../config')
+import { DefaultAzureCredential } from '@azure/identity'
+import { CosmosClient } from '@azure/cosmos'
+import { cosmosConfig } from '../config'
 
 if (cosmosConfig.isDev || cosmosConfig.isTest) {
   module.exports = new CosmosClient({ endpoint: cosmosConfig.endpoint, key: cosmosConfig.key })

@@ -1,10 +1,10 @@
-const Wreck = require('@hapi/wreck')
-const { getApimToken } = require('./get-apim-token')
-const { get: getCachedResponse, set: setCachedResponse } = require('../cache')
-const retry = require('./retry')
-const { getCacheKey } = require('./get-cache-key')
-const { getHost } = require('./get-host')
-const { getApimHeaders } = require('./get-apim-headers')
+import Wreck from '@hapi/wreck'
+import { getApimToken } from './get-apim-token.js'
+import { get as getCachedResponse, set as setCachedResponse } from '../cache'
+import retry from './retry.js'
+import { getCacheKey } from './get-cache-key.js'
+import { getHost } from './get-host.js'
+import { getApimHeaders } from './get-apim-headers.js'
 
 const get = async (path, headers) => {
   const cacheKey = getCacheKey(path, headers)
@@ -25,4 +25,4 @@ const getFromApim = async (path, headers, cacheKey) => {
   return payload
 }
 
-module.exports = { get }
+export default { get }

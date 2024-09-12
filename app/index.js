@@ -1,7 +1,7 @@
-const hapiApollo = require('@as-integrations/hapi').default
-const { server } = require('./server.js')
-const { apolloServer } = require('./graphql/apollo-server')
-const { initCosmos } = require('./cosmos/init')
+import hapiApollo from '@as-integrations/hapi'
+import { server } from './server.js'
+import { apolloServer } from './graphql/apollo-server.js'
+import { initCosmos } from './cosmos/init.js'
 
 const init = async () => {
   await apolloServer.start()

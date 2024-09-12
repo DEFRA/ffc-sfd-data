@@ -1,8 +1,8 @@
-const Wreck = require('@hapi/wreck')
-const FormData = require('form-data')
-const { apimConfig } = require('../config')
-const { get, set } = require('../cache')
-const { APIM_TOKEN } = require('../constants/cache-keys')
+import Wreck from '@hapi/wreck'
+import FormData from 'form-data'
+import { apimConfig } from '../config'
+import { get, set } from '../cache'
+import { APIM_TOKEN } from '../constants/cache-keys.js'
 
 const getApimToken = async () => {
   const cachedToken = await get(APIM_TOKEN)
@@ -32,4 +32,4 @@ const getApimTokenFromApim = async () => {
   })
 }
 
-module.exports = { getApimToken }
+export default { getApimToken }

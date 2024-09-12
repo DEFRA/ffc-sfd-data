@@ -1,10 +1,10 @@
-const { ApolloServer } = require('@apollo/server')
-const { typeDefs } = require('./schema/type-definitions')
-const { resolvers } = require('./schema/resolvers')
+import { ApolloServer } from '@apollo/server'
+import { typeDefs } from './schema/type-definitions.js'
+import { resolvers } from './schema/resolvers.js'
 
 const apolloServer = new ApolloServer({
   typeDefs,
   resolvers
 })
 
-module.exports = { apolloServer }
+export default { apolloServer }

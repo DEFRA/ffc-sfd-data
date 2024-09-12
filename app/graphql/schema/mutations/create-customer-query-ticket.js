@@ -1,6 +1,6 @@
-const cosmos = require('../../../cosmos')
-const { cosmosConfig } = require('../../../config')
-const { generateTimestamp } = require('../../../utils')
+import cosmos from '../../../cosmos'
+import { cosmosConfig } from '../../../config'
+import { generateTimestamp } from '../../../utils'
 
 const createCustomerQueryTicket = async (_root, args, context) => {
   const { queriesDatabase } = await cosmos()
@@ -32,6 +32,6 @@ const createCustomerQueryTicket = async (_root, args, context) => {
   }
 }
 
-module.exports = {
+export default {
   createCustomerQueryTicket
 }

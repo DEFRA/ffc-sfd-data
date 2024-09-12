@@ -1,5 +1,5 @@
-const { drop } = require('../cache')
-const { APIM_TOKEN } = require('../constants/cache-keys')
+import { drop } from '../cache'
+import { APIM_TOKEN } from '../constants/cache-keys.js'
 
 const retry = async (fn, retriesLeft = 3, interval = 1000, exponential = true) => {
   try {
@@ -18,4 +18,4 @@ const retry = async (fn, retriesLeft = 3, interval = 1000, exponential = true) =
   }
 }
 
-module.exports = retry
+export default retry

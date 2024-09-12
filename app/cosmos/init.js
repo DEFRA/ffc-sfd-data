@@ -1,5 +1,5 @@
-const fs = require('fs')
-const path = require('path')
+import fs from 'fs'
+import path from 'path'
 
 const initCosmos = async () => {
   try {
@@ -23,4 +23,4 @@ const initCosmos = async () => {
   }
 }
 
-module.exports = { initCosmos }
+export default { initCosmos }

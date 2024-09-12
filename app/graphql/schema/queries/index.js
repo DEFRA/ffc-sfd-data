@@ -1,18 +1,18 @@
-const { applicationsBySbi } = require('./applications-by-sbi')
-const { notification } = require('./notification')
-const { notificationsBySbi } = require('./notifications-by-sbi')
-const { organisation } = require('./organisation')
-const { payments } = require('./payments')
-const { permissions } = require('./permissions')
-const { personOrganisations } = require('./person-organisations')
-const { person } = require('./person')
-const { preferences } = require('./preferences')
-const { allCustomerQueryTickets } = require('./all-customer-query-tickets')
-const { customerQueryTicketsBySbi } = require('./customer-queries-by-sbi')
-const { customerQueryTicketById } = require('./customer-query-ticket-by-id')
-const { filesMetadataBySbi } = require('./files-metadata-by-sbi')
+import { applicationsBySbi } from './applications-by-sbi.js'
+import { notification } from './notification.js'
+import { notificationsBySbi } from './notifications-by-sbi.js'
+import { organisation } from './organisation.js'
+import { payments } from './payments.js'
+import { permissions } from './permissions.js'
+import { personOrganisations } from './person-organisations.js'
+import { person } from './person.js'
+import { preferences } from './preferences.js'
+import { allCustomerQueryTickets } from './all-customer-query-tickets.js'
+import { customerQueryTicketsBySbi } from './customer-queries-by-sbi.js'
+import { customerQueryTicketById } from './customer-query-ticket-by-id.js'
+import { filesMetadataBySbi } from './files-metadata-by-sbi.js'
 
-module.exports = {
+export {
   applicationsBySbi,
   notification,
   notificationsBySbi,
