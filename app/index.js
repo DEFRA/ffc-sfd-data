@@ -1,7 +1,9 @@
-import hapiApollo from '@as-integrations/hapi'
+import pkg from '@as-integrations/hapi'
 import { server } from './server.js'
 import { apolloServer } from './graphql/apollo-server.js'
 import { initCosmos } from './cosmos/init.js'
+
+const { hapiApollo } = pkg
 
 const init = async () => {
   await apolloServer.start()
