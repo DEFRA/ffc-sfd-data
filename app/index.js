@@ -6,7 +6,7 @@ const init = async () => {
   await apolloServer.start()
 
   await server.route({
-    method: 'POST',
+    method: ['POST', 'GET'],
     path: '/graphql',
     handler: async (request, h) => {
       const response = await apolloServer.executeOperation({

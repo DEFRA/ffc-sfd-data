@@ -5,8 +5,7 @@ import { resolvers } from './schema/resolvers.js'
 const apolloServer = new ApolloServer({
   typeDefs,
   resolvers,
-  introspection: true,
-  playground: true
+  introspection: true
 })
 
 export { apolloServer }
