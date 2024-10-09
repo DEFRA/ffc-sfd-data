@@ -1,3 +1,4 @@
+import hapiApollo from '@as-integrations/hapi'
 import { server } from './server.js'
 import { apolloServer } from './graphql/apollo-server.js'
 import { initCosmos } from './cosmos/init.js'
@@ -5,19 +6,11 @@ import { initCosmos } from './cosmos/init.js'
 const init = async () => {
   await apolloServer.start()
 
-  await server.route({
-    method: ['POST', 'GET'],
-    path: '/graphql',
-    handler: async (request, h) => {
-      const response = await apolloServer.executeOperation({
-        query: request.payload.query,
-        variables: request.payload.variables
-      }, {
-        request,
-        response: h.response
-      })
-
-      return h.response(response)
+  await server.register({
+    plugin: hapiApollo.default,
+    options: {
+      apolloServer,
+      path: '/graphql'
     }
   })
 
